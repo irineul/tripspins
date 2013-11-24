@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Attachment" representedClassName="Attachment" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="in_attachment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="st_file_path" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="note" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="attachment" inverseEntity="Note" syncable="YES"/>
+        <relationship name="pin" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="attachments" inverseEntity="Pin" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="st_note" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attachment" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Attachment" inverseName="note" inverseEntity="Attachment" syncable="YES"/>
+        <relationship name="pin" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="notes" inverseEntity="Pin" syncable="YES"/>
+    </entity>
+    <entity name="Pin" representedClassName="Pin" syncable="YES">
+        <attribute name="dec_latitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dec_longitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dt_start" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="st_description" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attachments" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Attachment" inverseName="pin" inverseEntity="Attachment" syncable="YES"/>
+        <relationship name="notes" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="pin" inverseEntity="Note" syncable="YES"/>
+        <relationship name="trip" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="pins" inverseEntity="Trip" syncable="YES"/>
+    </entity>
+    <entity name="Trip" representedClassName="Trip" syncable="YES">
+        <attribute name="bool_in_active" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dt_finish" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dt_start" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="int_total_attach" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="int_total_pin" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="st_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pin" inverseName="trip" inverseEntity="Pin" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Attachment" positionX="-189" positionY="492" width="126" height="120"/>
+        <element name="Note" positionX="81" positionY="465" width="126" height="105"/>
+        <element name="Pin" positionX="-63" positionY="231" width="128" height="165"/>
+        <element name="Trip" positionX="160" positionY="192" width="128" height="150"/>
+    </elements>
+</model>
