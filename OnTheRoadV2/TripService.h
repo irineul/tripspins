@@ -12,5 +12,6 @@
 @interface TripService : NSObject
 
 -(BOOL) finish:(NSManagedObjectID*)tripId;
+-(Trip*) getTrip:(NSManagedObjectID*)tripId;
 
 @end

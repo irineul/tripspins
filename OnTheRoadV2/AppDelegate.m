@@ -29,7 +29,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"OnTheRoadV2.sqlite"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"queen.sqlite"];
     
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 

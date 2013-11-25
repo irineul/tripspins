@@ -132,9 +132,8 @@
 -(void) savePin{
     
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        Trip *tripDb = [Trip MR_createInContext:localContext];
         // Get current trip
-        tripDb = (Trip*) [localContext objectWithID:self.idCurrentTrip];
+        Trip *tripDb = (Trip*) [localContext objectWithID:self.idCurrentTrip];
         
         //Create a pin
         Pin *newPin = [Pin MR_createInContext:localContext];
@@ -165,42 +164,27 @@
             NSLog(@"%@", error);
     }];
     
+    [self dismissModalViewControllerAnimated:YES];
+}
 
+-(void) saveAttachs: (Pin*) pin{
+    [self saveNotes:pin];
+}
 
-
+-(void) saveNotes: (Pin*) pin{
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     
-
+    for (int i=0; i<[notes count]; i++) {
+        Note *note = [Note MR_createInContext:localContext];
+        [note setSt_note:[[notes objectAtIndex:i] st_note]];
+        [note setPin:pin];
+    }
     
-
-    
-    /*
     //Save the context
     [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error){
         if(!success)
             NSLog(@"%@", error);
-    }]; */
-    
-    //Save the attachs
-//    [self saveAttachs:newPin: tripDb];
-    
-    [self dismissModalViewControllerAnimated:YES];
-}
-
--(void) saveAttachs: (Pin*) pin:(Trip*) trip{
-    [self saveNotes:pin: trip];
-}
-
--(void) saveNotes: (Pin*) pin:(Trip*) trip{
-    
-    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        
-    } completion:^(BOOL success, NSError *error) {
-        if(!success)
-            NSLog(@"%@", error);
     }];
-    
-    
-
 }
 
 

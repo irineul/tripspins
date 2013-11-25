@@ -29,14 +29,10 @@
 		6D281F9217D2B2FA0005088C /* NewTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D281F9017D2B2FA0005088C /* NewTripViewController.xib */; };
 		6D281F9417D2BAE00005088C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D281F9317D2BAE00005088C /* CoreData.framework */; };
 		6D281F9617D2BE9C0005088C /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D281F9517D2BE9C0005088C /* libc++abi.dylib */; };
-		6D2F67E01841604C00F4A5CE /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F67DF1841604C00F4A5CE /* Note.m */; };
-		6D2F67E31841604D00F4A5CE /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F67E21841604D00F4A5CE /* Attachment.m */; };
 		6D2F67E618416AA800F4A5CE /* FilesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F67E518416AA800F4A5CE /* FilesService.m */; };
 		6D325F5C17DBD4B200E26196 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D325F5B17DBD4B200E26196 /* QuartzCore.framework */; };
 		6D39E09717E64E7400E700BE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D39E09517E64E7400E700BE /* MainViewController.m */; };
 		6D39E09817E64E7400E700BE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D39E09617E64E7400E700BE /* MainViewController.xib */; };
-		6D606A56183EC19400372DC9 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A55183EC19400372DC9 /* Trip.m */; };
-		6D606A59183EC1C100372DC9 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A58183EC1C100372DC9 /* Pin.m */; };
 		6D606A5D183EC4FF00372DC9 /* PinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A5B183EC4FF00372DC9 /* PinViewController.m */; };
 		6D606A5E183EC4FF00372DC9 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D606A5C183EC4FF00372DC9 /* PinViewController.xib */; };
 		6D606A62183ED84500372DC9 /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A61183ED84500372DC9 /* AudioPlayerViewController.m */; };
@@ -85,6 +81,10 @@
 		6D951F6D181D85DD00D168F1 /* PinTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D951F6C181D85DD00D168F1 /* PinTableCell.xib */; };
 		6D951F72181D86B800D168F1 /* PinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D951F71181D86B800D168F1 /* PinTableCell.m */; };
 		6DBFCFFF17D40E7800525A6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBFCFFE17D40E7800525A6E /* CoreLocation.framework */; };
+		6DC9D1D81842CC1D00DBA671 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1D71842CC1D00DBA671 /* Note.m */; };
+		6DC9D1DB1842CC1E00DBA671 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1DA1842CC1E00DBA671 /* Pin.m */; };
+		6DC9D1DE1842CC1E00DBA671 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1DD1842CC1E00DBA671 /* Trip.m */; };
+		6DC9D1E11842CC1E00DBA671 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1E01842CC1E00DBA671 /* Attachment.m */; };
 		6DEBB8BB180F786000834364 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8BA180F786000834364 /* GoogleMaps.framework */; };
 		6DEBB8BE180F78CC00834364 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBB8BD180F78CC00834364 /* GoogleMaps.bundle */; };
 		6DEBB8C0180F793800834364 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8BF180F793800834364 /* AVFoundation.framework */; };
@@ -133,20 +133,12 @@
 		6D281F9317D2BAE00005088C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6D281F9517D2BE9C0005088C /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
 		6D2F67DB18415F8500F4A5CE /* FileTypesEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTypesEnum.h; path = Helpers/FileTypesEnum.h; sourceTree = "<group>"; };
-		6D2F67DE1841604C00F4A5CE /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
-		6D2F67DF1841604C00F4A5CE /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Models/Note.m; sourceTree = "<group>"; };
-		6D2F67E11841604D00F4A5CE /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
-		6D2F67E21841604D00F4A5CE /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		6D2F67E418416AA800F4A5CE /* FilesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesService.h; path = Services/FilesService.h; sourceTree = "<group>"; };
 		6D2F67E518416AA800F4A5CE /* FilesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesService.m; path = Services/FilesService.m; sourceTree = "<group>"; };
 		6D325F5B17DBD4B200E26196 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6D39E09417E64E7400E700BE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6D39E09517E64E7400E700BE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6D39E09617E64E7400E700BE /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		6D606A54183EC19400372DC9 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
-		6D606A55183EC19400372DC9 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
-		6D606A57183EC1C100372DC9 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
-		6D606A58183EC1C100372DC9 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pin.m; sourceTree = "<group>"; };
 		6D606A5A183EC4FF00372DC9 /* PinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinViewController.h; sourceTree = "<group>"; };
 		6D606A5B183EC4FF00372DC9 /* PinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinViewController.m; sourceTree = "<group>"; };
 		6D606A5C183EC4FF00372DC9 /* PinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
@@ -231,6 +223,14 @@
 		6D951F70181D86B800D168F1 /* PinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinTableCell.h; sourceTree = "<group>"; };
 		6D951F71181D86B800D168F1 /* PinTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinTableCell.m; sourceTree = "<group>"; };
 		6DBFCFFE17D40E7800525A6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6DC9D1D61842CC1D00DBA671 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
+		6DC9D1D71842CC1D00DBA671 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Models/Note.m; sourceTree = "<group>"; };
+		6DC9D1D91842CC1E00DBA671 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pin.h; path = Models/Pin.h; sourceTree = "<group>"; };
+		6DC9D1DA1842CC1E00DBA671 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
+		6DC9D1DC1842CC1E00DBA671 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trip.h; path = Models/Trip.h; sourceTree = "<group>"; };
+		6DC9D1DD1842CC1E00DBA671 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trip.m; path = Models/Trip.m; sourceTree = "<group>"; };
+		6DC9D1DF1842CC1E00DBA671 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
+		6DC9D1E01842CC1E00DBA671 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		6DEBB8BA180F786000834364 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		6DEBB8BD180F78CC00834364 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		6DEBB8BF180F793800834364 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -351,14 +351,14 @@
 			isa = PBXGroup;
 			children = (
 				6D041F2317DD371F00A30CF4 /* OnTheRoadModel.xcdatamodeld */,
-				6D606A54183EC19400372DC9 /* Trip.h */,
-				6D606A55183EC19400372DC9 /* Trip.m */,
-				6D606A57183EC1C100372DC9 /* Pin.h */,
-				6D606A58183EC1C100372DC9 /* Pin.m */,
-				6D2F67E11841604D00F4A5CE /* Attachment.h */,
-				6D2F67E21841604D00F4A5CE /* Attachment.m */,
-				6D2F67DE1841604C00F4A5CE /* Note.h */,
-				6D2F67DF1841604C00F4A5CE /* Note.m */,
+				6DC9D1DF1842CC1E00DBA671 /* Attachment.h */,
+				6DC9D1E01842CC1E00DBA671 /* Attachment.m */,
+				6DC9D1DC1842CC1E00DBA671 /* Trip.h */,
+				6DC9D1DD1842CC1E00DBA671 /* Trip.m */,
+				6DC9D1D91842CC1E00DBA671 /* Pin.h */,
+				6DC9D1DA1842CC1E00DBA671 /* Pin.m */,
+				6DC9D1D61842CC1D00DBA671 /* Note.h */,
+				6DC9D1D71842CC1D00DBA671 /* Note.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -692,16 +692,16 @@
 				6D951F5B181C9BB300D168F1 /* TripDetailViewController.m in Sources */,
 				6D951F6A181D821800D168F1 /* TripDetailPinsViewController.m in Sources */,
 				6D951F72181D86B800D168F1 /* PinTableCell.m in Sources */,
-				6D606A56183EC19400372DC9 /* Trip.m in Sources */,
-				6D606A59183EC1C100372DC9 /* Pin.m in Sources */,
 				6D606A5D183EC4FF00372DC9 /* PinViewController.m in Sources */,
 				6D606A62183ED84500372DC9 /* AudioPlayerViewController.m in Sources */,
 				6D606A6D1840FC4800372DC9 /* LoginViewController.m in Sources */,
 				6D606A8218413F0200372DC9 /* PinDetailViewController.m in Sources */,
 				6D606A881841441000372DC9 /* AttachmentCell.m in Sources */,
-				6D2F67E01841604C00F4A5CE /* Note.m in Sources */,
-				6D2F67E31841604D00F4A5CE /* Attachment.m in Sources */,
 				6D2F67E618416AA800F4A5CE /* FilesService.m in Sources */,
+				6DC9D1D81842CC1D00DBA671 /* Note.m in Sources */,
+				6DC9D1DB1842CC1E00DBA671 /* Pin.m in Sources */,
+				6DC9D1DE1842CC1E00DBA671 /* Trip.m in Sources */,
+				6DC9D1E11842CC1E00DBA671 /* Attachment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,6 @@
 @interface PinDetailViewController ()
 {
     NSArray *attachments;
-    NSMutableArray *notes;
     NoteService *noteService;
     Attachment* attachment;
 }
@@ -43,9 +42,13 @@
     // Get all attachments
     //TODO get pics, movies,....
     noteService = [[NoteService alloc] init];
-    notes = [noteService getNotesFromPin:_pin];
+    NSArray *notes = [Note MR_findAll];
+    notes = [noteService getNotesFromPin: [_pin objectID]];
     
-    NSLog([[notes objectAtIndex:1] st_note]);
+    for (int i = 0; i<[notes count]; i++) {
+        NSLog([[notes objectAtIndex:i] st_note]);
+    }
+    
     [self.tableAttachs reloadData];
     [super viewDidAppear:animated];
     

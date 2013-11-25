@@ -17,6 +17,6 @@
 }
 
 -(BOOL) insert:(Note *)note: (NSManagedObjectID *) idCurrentTrip;
--(NSArray*) getNotesFromPin:(Pin*) pinId;
+-(NSArray*) getNotesFromPin:(NSManagedObjectID*) pinId;
 
 @end

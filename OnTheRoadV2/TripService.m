@@ -46,4 +46,9 @@
     return true;
 }
 
+-(Trip*) getTrip:(NSManagedObjectID*)tripId{
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    return [localContext objectWithID:tripId];
+}
+
 @end

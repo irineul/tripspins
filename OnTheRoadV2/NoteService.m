@@ -37,7 +37,7 @@
 
 
 -(NSArray*) getNotesFromPin:(NSManagedObjectID*) pinId{
-//    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    
     NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"pin == %@", pinId];
   
     NSArray* notes = [NSMutableArray new];
