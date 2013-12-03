@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
+		2645E91B184D65670067F75D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E91A184D65670067F75D /* FacebookSDK.framework */; };
 		6D03060B17F76FEC0000F8D6 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060917F76FEB0000F8D6 /* NoteViewController.m */; };
 		6D03060C17F76FEC0000F8D6 /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */; };
 		6D03061017F774570000F8D6 /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060F17F774570000F8D6 /* TripService.m */; };
@@ -36,7 +38,6 @@
 		6D606A5D183EC4FF00372DC9 /* PinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A5B183EC4FF00372DC9 /* PinViewController.m */; };
 		6D606A5E183EC4FF00372DC9 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D606A5C183EC4FF00372DC9 /* PinViewController.xib */; };
 		6D606A62183ED84500372DC9 /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A61183ED84500372DC9 /* AudioPlayerViewController.m */; };
-		6D606A691840FB3800372DC9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D606A681840FB3800372DC9 /* FacebookSDK.framework */; };
 		6D606A6D1840FC4800372DC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A6B1840FC4600372DC9 /* LoginViewController.m */; };
 		6D606A6E1840FC4800372DC9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D606A6C1840FC4700372DC9 /* LoginViewController.xib */; };
 		6D606A741841198F00372DC9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D606A731841198F00372DC9 /* AdSupport.framework */; };
@@ -100,6 +101,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2645E8FD184D62640067F75D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		2645E91A184D65670067F75D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		6D03060817F76FEB0000F8D6 /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		6D03060917F76FEB0000F8D6 /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
@@ -144,7 +147,6 @@
 		6D606A5C183EC4FF00372DC9 /* PinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
 		6D606A60183ED84500372DC9 /* AudioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayerViewController.h; path = Helpers/AudioPlayerViewController.h; sourceTree = "<group>"; };
 		6D606A61183ED84500372DC9 /* AudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayerViewController.m; path = Helpers/AudioPlayerViewController.m; sourceTree = "<group>"; };
-		6D606A681840FB3800372DC9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		6D606A6A1840FC4600372DC9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6D606A6B1840FC4600372DC9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6D606A6C1840FC4700372DC9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */,
 				6D606A7A18411A8400372DC9 /* libsqlite3.0.dylib in Frameworks */,
 				6D606A781841199E00372DC9 /* Accounts.framework in Frameworks */,
 				6D606A761841199300372DC9 /* Social.framework in Frameworks */,
@@ -262,6 +265,7 @@
 				6DEBB8C8180F798C00834364 /* libc++.dylib in Frameworks */,
 				6DEBB8C6180F797B00834364 /* ImageIO.framework in Frameworks */,
 				6DEBB8C4180F797300834364 /* GLKit.framework in Frameworks */,
+				2645E91B184D65670067F75D /* FacebookSDK.framework in Frameworks */,
 				6DEBB8C2180F795400834364 /* CoreText.framework in Frameworks */,
 				6DBFCFFF17D40E7800525A6E /* CoreLocation.framework in Frameworks */,
 				6D281F9417D2BAE00005088C /* CoreData.framework in Frameworks */,
@@ -272,7 +276,6 @@
 				6D281F5E17D27C4A0005088C /* Foundation.framework in Frameworks */,
 				6D281F6017D27C4A0005088C /* CoreGraphics.framework in Frameworks */,
 				6DEBB8BB180F786000834364 /* GoogleMaps.framework in Frameworks */,
-				6D606A691840FB3800372DC9 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +400,8 @@
 		6D281F5A17D27C4A0005088C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6D606A681840FB3800372DC9 /* FacebookSDK.framework */,
+				2645E91A184D65670067F75D /* FacebookSDK.framework */,
+				2645E8FD184D62640067F75D /* AddressBook.framework */,
 				6DEBB8BD180F78CC00834364 /* GoogleMaps.bundle */,
 				6DEBB8BA180F786000834364 /* GoogleMaps.framework */,
 				6D325F5B17DBD4B200E26196 /* QuartzCore.framework */,
@@ -608,6 +612,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				he,
 			);
 			mainGroup = 6D281F4C17D27C4A0005088C;
 			productRefGroup = 6D281F5817D27C4A0005088C /* Products */;
@@ -782,8 +787,10 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../FacebookSDK\"",
+					"$(SRCROOT)",
+					"\\\\\\\"$(SRCROOT)/../../../../FacebookSDK\\\\\\\"",
+					/Users/irineul/Desktop/Programming/tripsandpins/FacebookSDK,
+					/Users/irineul/Desktop/Programming/tripsandpins,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnTheRoadV2/OnTheRoadV2-Prefix.pch";
@@ -799,8 +806,10 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../FacebookSDK\"",
+					"$(SRCROOT)",
+					"\\\\\\\"$(SRCROOT)/../../../../FacebookSDK\\\\\\\"",
+					/Users/irineul/Desktop/Programming/tripsandpins/FacebookSDK,
+					/Users/irineul/Desktop/Programming/tripsandpins,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnTheRoadV2/OnTheRoadV2-Prefix.pch";
