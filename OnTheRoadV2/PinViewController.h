@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtLatitude;
 @property (weak, nonatomic) IBOutlet UILabel *txtAddress;
 
+-(NSString *) saveImageIntoDocumentsDirectoryAndReturnPath:(UIImage *)imageToSave;
+-(NSString *) getUniqueIdentifier;
 
 @end

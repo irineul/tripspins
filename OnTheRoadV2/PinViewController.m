@@ -58,9 +58,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma button actions
-- (IBAction)actTakePic:(id)sender {
+#pragma picture
+- (IBAction)takePicture:(id)sender {
+
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle: nil
+                                                             delegate: self
+                                                    cancelButtonTitle: @"Cancel"
+                                               destructiveButtonTitle: nil
+                                                    otherButtonTitles: @"Take a new photo", @"Choose from existing", nil];
+    [actionSheet showInView:self.view];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [self takeNewPhotoFromCamera];
+            break;
+        case 1:
+            [self choosePhotoFromExistingImages];
+        default:
+            break;
+    }
+}
+- (void)takeNewPhotoFromCamera
+{
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -83,6 +107,74 @@
         [self presentViewController:picker animated:YES completion:NULL];
     }
 }
+-(void)choosePhotoFromExistingImages
+{
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+        controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        controller.allowsEditing = NO;
+        controller.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypePhotoLibrary];
+        controller.delegate = self;
+        [self presentViewController:controller animated:YES completion:NULL];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self.navigationController dismissViewControllerAnimated: YES completion: nil];
+    UIImage *image = [info valueForKey: UIImagePickerControllerOriginalImage];
+    NSString* path = [self saveImageIntoDocumentsDirectoryAndReturnPath:image];
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+-(NSString *) getUniqueIdentifier
+{
+    CFUUIDRef uuid;
+    CFStringRef uuidStr;
+    
+    uuid = CFUUIDCreate(NULL);
+    uuidStr = CFUUIDCreateString(NULL, uuid);
+    
+    return (__bridge NSString *)(uuidStr);
+}
+
+// user generated images are stored in the documents directory
++(UIImage *) loadImageFromDocumentsDirectory:(NSString *)imageUrl
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imageUrl]];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:savedImagePath];
+    
+    return image;
+}
+
+// save user's image into the documents directory
+-(NSString *) saveImageIntoDocumentsDirectoryAndReturnPath:(UIImage *)imageToSave
+{
+    
+    NSString *uniqueImageName = [self getUniqueIdentifier];
+    
+    uniqueImageName = [uniqueImageName stringByAppendingPathExtension:@"png"];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",uniqueImageName]];
+    NSData *imageData = UIImagePNGRepresentation(imageToSave);
+    
+    [imageData writeToFile:savedImagePath atomically:YES];
+    
+    return uniqueImageName;
+}
 
 - (IBAction)actMovie:(id)sender {
     //TOOD
@@ -103,20 +195,6 @@
 }
 
 
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
-    //TODO SAVE PIC
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    
-}
 
 #pragma notificationsHandlers
 -(void)noteNotificationhandler:(NSNotification *)notice{
