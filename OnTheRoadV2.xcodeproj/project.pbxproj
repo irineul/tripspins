@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9BD18539DAA00423B34 /* ImageHelper.m */; };
+		263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C018539FDE00423B34 /* AttachmentService.m */; };
+		263AB9C71853A48F00423B34 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C61853A48F00423B34 /* Attachment.m */; };
+		263AB9CD1853B44300423B34 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9CC1853B44300423B34 /* Pin.m */; };
 		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
 		2645E91B184D65670067F75D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E91A184D65670067F75D /* FacebookSDK.framework */; };
 		6D03060B17F76FEC0000F8D6 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060917F76FEB0000F8D6 /* NoteViewController.m */; };
@@ -83,9 +87,7 @@
 		6D951F72181D86B800D168F1 /* PinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D951F71181D86B800D168F1 /* PinTableCell.m */; };
 		6DBFCFFF17D40E7800525A6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBFCFFE17D40E7800525A6E /* CoreLocation.framework */; };
 		6DC9D1D81842CC1D00DBA671 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1D71842CC1D00DBA671 /* Note.m */; };
-		6DC9D1DB1842CC1E00DBA671 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1DA1842CC1E00DBA671 /* Pin.m */; };
 		6DC9D1DE1842CC1E00DBA671 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1DD1842CC1E00DBA671 /* Trip.m */; };
-		6DC9D1E11842CC1E00DBA671 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC9D1E01842CC1E00DBA671 /* Attachment.m */; };
 		6DEBB8BB180F786000834364 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8BA180F786000834364 /* GoogleMaps.framework */; };
 		6DEBB8BE180F78CC00834364 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBB8BD180F78CC00834364 /* GoogleMaps.bundle */; };
 		6DEBB8C0180F793800834364 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8BF180F793800834364 /* AVFoundation.framework */; };
@@ -101,6 +103,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		263AB9BC18539DAA00423B34 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelper.h; path = Helpers/ImageHelper.h; sourceTree = "<group>"; };
+		263AB9BD18539DAA00423B34 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelper.m; path = Helpers/ImageHelper.m; sourceTree = "<group>"; };
+		263AB9BF18539FDE00423B34 /* AttachmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentService.h; path = Services/AttachmentService.h; sourceTree = "<group>"; };
+		263AB9C018539FDE00423B34 /* AttachmentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentService.m; path = Services/AttachmentService.m; sourceTree = "<group>"; };
+		263AB9C21853A3FD00423B34 /* FileTypesEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTypesEnum.h; path = Helpers/FileTypesEnum.h; sourceTree = "<group>"; };
+		263AB9C51853A48F00423B34 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
+		263AB9C61853A48F00423B34 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
+		263AB9CB1853B44300423B34 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pin.h; path = Models/Pin.h; sourceTree = "<group>"; };
+		263AB9CC1853B44300423B34 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
 		2645E8FD184D62640067F75D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		2645E91A184D65670067F75D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		6D03060817F76FEB0000F8D6 /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
@@ -135,7 +146,6 @@
 		6D281F9017D2B2FA0005088C /* NewTripViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewTripViewController.xib; path = ../NewTripViewController.xib; sourceTree = "<group>"; };
 		6D281F9317D2BAE00005088C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6D281F9517D2BE9C0005088C /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
-		6D2F67DB18415F8500F4A5CE /* FileTypesEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTypesEnum.h; path = Helpers/FileTypesEnum.h; sourceTree = "<group>"; };
 		6D2F67E418416AA800F4A5CE /* FilesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesService.h; path = Services/FilesService.h; sourceTree = "<group>"; };
 		6D2F67E518416AA800F4A5CE /* FilesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesService.m; path = Services/FilesService.m; sourceTree = "<group>"; };
 		6D325F5B17DBD4B200E26196 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -227,12 +237,8 @@
 		6DBFCFFE17D40E7800525A6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6DC9D1D61842CC1D00DBA671 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
 		6DC9D1D71842CC1D00DBA671 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Models/Note.m; sourceTree = "<group>"; };
-		6DC9D1D91842CC1E00DBA671 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pin.h; path = Models/Pin.h; sourceTree = "<group>"; };
-		6DC9D1DA1842CC1E00DBA671 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
 		6DC9D1DC1842CC1E00DBA671 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trip.h; path = Models/Trip.h; sourceTree = "<group>"; };
 		6DC9D1DD1842CC1E00DBA671 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trip.m; path = Models/Trip.m; sourceTree = "<group>"; };
-		6DC9D1DF1842CC1E00DBA671 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
-		6DC9D1E01842CC1E00DBA671 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		6DEBB8BA180F786000834364 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		6DEBB8BD180F78CC00834364 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		6DEBB8BF180F793800834364 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -346,6 +352,8 @@
 				6D03061517F778EE0000F8D6 /* NoteService.m */,
 				6D2F67E418416AA800F4A5CE /* FilesService.h */,
 				6D2F67E518416AA800F4A5CE /* FilesService.m */,
+				263AB9BF18539FDE00423B34 /* AttachmentService.h */,
+				263AB9C018539FDE00423B34 /* AttachmentService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -354,14 +362,14 @@
 			isa = PBXGroup;
 			children = (
 				6D041F2317DD371F00A30CF4 /* OnTheRoadModel.xcdatamodeld */,
-				6DC9D1DF1842CC1E00DBA671 /* Attachment.h */,
-				6DC9D1E01842CC1E00DBA671 /* Attachment.m */,
 				6DC9D1DC1842CC1E00DBA671 /* Trip.h */,
 				6DC9D1DD1842CC1E00DBA671 /* Trip.m */,
-				6DC9D1D91842CC1E00DBA671 /* Pin.h */,
-				6DC9D1DA1842CC1E00DBA671 /* Pin.m */,
 				6DC9D1D61842CC1D00DBA671 /* Note.h */,
 				6DC9D1D71842CC1D00DBA671 /* Note.m */,
+				263AB9C51853A48F00423B34 /* Attachment.h */,
+				263AB9C61853A48F00423B34 /* Attachment.m */,
+				263AB9CB1853B44300423B34 /* Pin.h */,
+				263AB9CC1853B44300423B34 /* Pin.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -451,7 +459,9 @@
 			children = (
 				6D606A60183ED84500372DC9 /* AudioPlayerViewController.h */,
 				6D606A61183ED84500372DC9 /* AudioPlayerViewController.m */,
-				6D2F67DB18415F8500F4A5CE /* FileTypesEnum.h */,
+				263AB9BC18539DAA00423B34 /* ImageHelper.h */,
+				263AB9BD18539DAA00423B34 /* ImageHelper.m */,
+				263AB9C21853A3FD00423B34 /* FileTypesEnum.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -673,6 +683,7 @@
 				6D8ADFDD17D3C331006775DC /* NSManagedObject+MagicalDataImport.m in Sources */,
 				6D8ADFDE17D3C331006775DC /* NSManagedObject+MagicalFinders.m in Sources */,
 				6D8ADFDF17D3C331006775DC /* NSManagedObject+MagicalRecord.m in Sources */,
+				263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */,
 				6D8ADFE017D3C331006775DC /* NSManagedObject+MagicalRequests.m in Sources */,
 				6D8ADFE117D3C331006775DC /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				6D8ADFE217D3C331006775DC /* NSManagedObjectContext+MagicalRecord.m in Sources */,
@@ -681,9 +692,11 @@
 				6D8ADFE517D3C331006775DC /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				6D8ADFE617D3C331006775DC /* NSPersistentStore+MagicalRecord.m in Sources */,
 				6D8ADFE717D3C331006775DC /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
+				263AB9C71853A48F00423B34 /* Attachment.m in Sources */,
 				6D8ADFE817D3C331006775DC /* MagicalRecord+Actions.m in Sources */,
 				6D8ADFE917D3C331006775DC /* MagicalRecord+ErrorHandling.m in Sources */,
 				6D8ADFEA17D3C331006775DC /* MagicalRecord+iCloud.m in Sources */,
+				263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */,
 				6D8ADFEB17D3C331006775DC /* MagicalRecord+Options.m in Sources */,
 				6D8ADFEC17D3C331006775DC /* MagicalRecord+Setup.m in Sources */,
 				6D8ADFED17D3C331006775DC /* MagicalRecord+ShorthandSupport.m in Sources */,
@@ -701,12 +714,11 @@
 				6D606A62183ED84500372DC9 /* AudioPlayerViewController.m in Sources */,
 				6D606A6D1840FC4800372DC9 /* LoginViewController.m in Sources */,
 				6D606A8218413F0200372DC9 /* PinDetailViewController.m in Sources */,
+				263AB9CD1853B44300423B34 /* Pin.m in Sources */,
 				6D606A881841441000372DC9 /* AttachmentCell.m in Sources */,
 				6D2F67E618416AA800F4A5CE /* FilesService.m in Sources */,
 				6DC9D1D81842CC1D00DBA671 /* Note.m in Sources */,
-				6DC9D1DB1842CC1E00DBA671 /* Pin.m in Sources */,
 				6DC9D1DE1842CC1E00DBA671 /* Trip.m in Sources */,
-				6DC9D1E11842CC1E00DBA671 /* Attachment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,40 @@
 //
 
 #import "AttachmentService.h"
+#import "Attachment.h"
+#import "FileTypesEnum.h"
+#import "Pin.h"
+#import "ImageHelper.h"
 
 @implementation AttachmentService
+
++ (AttachmentService*)sharedInstance
+{
+    static AttachmentService *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[AttachmentService alloc] init];
+    });
+    return _sharedInstance;
+}
+
+- (void)saveArrayImagePath: (NSMutableArray* )paths: (Pin *) pin{
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    for (int i =0; i<[paths count]; i++) {
+        Attachment *attachment = [Attachment MR_createInContext:localContext];
+        [attachment setIn_attachment:[NSNumber numberWithInt:IMAGE]];
+        [attachment setSt_file_path:[paths objectAtIndex:i]];
+        [attachment setPin:pin];
+    }
+
+    
+    //Save
+    [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error){
+        if(!success)
+            NSLog(@"%@", error);
+    }];
+}
 
 @end

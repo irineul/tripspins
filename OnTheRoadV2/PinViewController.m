@@ -11,6 +11,8 @@
 #import "AudioPlayerViewController.h"
 #import "Pin.h"
 #import <CoreLocation/CoreLocation.h>
+#import "AttachmentService.h"
+#import "ImageHelper.h"
 
 @interface PinViewController ()
 
@@ -19,10 +21,12 @@
 @implementation PinViewController
 {
     NSMutableArray *notes;
+    NSMutableArray *pictures;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,6 +48,9 @@
     
     //Initialize notes array
     notes = [[NSMutableArray alloc] init];
+    //Initialize pics array
+    pictures = [[NSMutableArray alloc] init];
+    
     //Get the attachs
     //Note
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -119,62 +126,26 @@
         [self presentViewController:controller animated:YES completion:NULL];
     }
 }
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+
 {
     [self.navigationController dismissViewControllerAnimated: YES completion: nil];
     UIImage *image = [info valueForKey: UIImagePickerControllerOriginalImage];
-    NSString* path = [self saveImageIntoDocumentsDirectoryAndReturnPath:image];
+    
+    //Save image, get the path and add to the array of paths
+    [pictures addObject:[[ImageHelper sharedInstance] saveImageAndReturnPath:image]];
+    
+    //Save to the user's album
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
     [self dismissModalViewControllerAnimated:YES];
 }
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
 {
     [self dismissModalViewControllerAnimated:YES];
 }
 
-
--(NSString *) getUniqueIdentifier
-{
-    CFUUIDRef uuid;
-    CFStringRef uuidStr;
-    
-    uuid = CFUUIDCreate(NULL);
-    uuidStr = CFUUIDCreateString(NULL, uuid);
-    
-    return (__bridge NSString *)(uuidStr);
-}
-
-// user generated images are stored in the documents directory
-+(UIImage *) loadImageFromDocumentsDirectory:(NSString *)imageUrl
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imageUrl]];
-    
-    UIImage *image = [UIImage imageWithContentsOfFile:savedImagePath];
-    
-    return image;
-}
-
-// save user's image into the documents directory
--(NSString *) saveImageIntoDocumentsDirectoryAndReturnPath:(UIImage *)imageToSave
-{
-    
-    NSString *uniqueImageName = [self getUniqueIdentifier];
-    
-    uniqueImageName = [uniqueImageName stringByAppendingPathExtension:@"png"];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",uniqueImageName]];
-    NSData *imageData = UIImagePNGRepresentation(imageToSave);
-    
-    [imageData writeToFile:savedImagePath atomically:YES];
-    
-    return uniqueImageName;
-}
 
 - (IBAction)actMovie:(id)sender {
     //TOOD
@@ -230,12 +201,11 @@
         NSNumber *pinsN = [NSNumber numberWithInt:pins+1];
         [tripDb setInt_total_pin:pinsN];
         
-        NSArray* notesSaved = [[NSArray alloc] init];
-        for (int i=0; i<[notes count]; i++) {
-            Note *note = [Note MR_createInContext:localContext];
-            [note setSt_note:[[notes objectAtIndex:i] st_note]];
-            [note setPin:newPin];
-        }
+        [[newPin MR_inContext:localContext ] addNotes:[NSSet setWithArray:notes]];
+        [[newPin MR_inContext:localContext ] addAttachments:[NSSet setWithArray:pictures]];
+        
+        [self saveAttachs:newPin];
+
         
     } completion:^(BOOL success, NSError *error) {
         if(!success)
@@ -247,10 +217,12 @@
 
 -(void) saveAttachs: (Pin*) pin{
     [self saveNotes:pin];
+    [[AttachmentService sharedInstance] saveArrayImagePath:pictures :pin];
 }
 
 -(void) saveNotes: (Pin*) pin{
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    
     
     for (int i=0; i<[notes count]; i++) {
         Note *note = [Note MR_createInContext:localContext];

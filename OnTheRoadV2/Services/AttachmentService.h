@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Pin.h"
 
 @interface AttachmentService : NSObject
+
++ (AttachmentService*)sharedInstance;
+- (void)saveArrayImagePath: (NSMutableArray* )paths: (Pin *) pin;
 
 @end

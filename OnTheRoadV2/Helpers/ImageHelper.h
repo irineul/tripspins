@@ -10,4 +10,8 @@
 
 @interface ImageHelper : NSObject
 
++ (ImageHelper*)sharedInstance;
+- (NSString*) saveImageAndReturnPath:(UIImage*)image;
+- (NSString *) getUniqueIdentifier;
+
 @end
