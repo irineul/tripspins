@@ -2,7 +2,7 @@
 //  Pin.h
 //  OnTheRoadV2
 //
-//  Created by Irineu Licks on 24/11/13.
+//  Created by Irineu Licks Filho on 07/12/13.
 //  Copyright (c) 2013 On The Road. All rights reserved.
 //
 
@@ -18,12 +18,17 @@
 @property (nonatomic, retain) NSDate * dt_start;
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * st_description;
-@property (nonatomic, retain) Attachment *attachments;
+@property (nonatomic, retain) NSSet *attachments;
 @property (nonatomic, retain) NSSet *notes;
 @property (nonatomic, retain) Trip *trip;
 @end
 
 @interface Pin (CoreDataGeneratedAccessors)
+
+- (void)addAttachmentsObject:(Attachment *)value;
+- (void)removeAttachmentsObject:(Attachment *)value;
+- (void)addAttachments:(NSSet *)values;
+- (void)removeAttachments:(NSSet *)values;
 
 - (void)addNotesObject:(Note *)value;
 - (void)removeNotesObject:(Note *)value;

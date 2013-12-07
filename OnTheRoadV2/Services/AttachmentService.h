@@ -1,5 +1,5 @@
 //
-//  FileTypesEnum.h
+//  AttachmentService.h
 //  OnTheRoadV2
 //
 //  Created by Irineu Licks Filho on 07/12/13.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FileTypesEnum : NSObject
+@interface AttachmentService : NSObject
 
 @end
