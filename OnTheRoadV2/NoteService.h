@@ -16,6 +16,7 @@
     TripService *tripService;
 }
 
++ (NoteService*)sharedInstance;
 -(BOOL) insert:(Note *)note: (NSManagedObjectID *) idCurrentTrip;
 -(NSArray*) getNotesFromPin:(NSManagedObjectID*) pinId;
 

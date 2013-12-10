@@ -10,6 +10,8 @@
 #import "AttachmentCell.h"
 #import "NoteService.h"
 #import "Attachment.h"
+#import "AttachmentService.h"
+#import "ImageHelper.h"
 
 @interface PinDetailViewController ()
 {
@@ -39,15 +41,19 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // Get all attachments
-    //TODO get pics, movies,....
-    noteService = [[NoteService alloc] init];
+    // Get all notes
     NSArray *notes = [Note MR_findAll];
-    notes = [noteService getNotesFromPin: [_pin objectID]];
+    notes = [[NoteService sharedInstance] getNotesFromPin: [_pin objectID]];
+    //Get all attachs
+    NSArray *attachs = [[AttachmentService sharedInstance] getAttachmentsFromPin:[_pin objectID]];
     
     for (int i = 0; i<[notes count]; i++) {
         NSLog([[notes objectAtIndex:i] st_note]);
     }
+    for (int i = 0; i<[attachs count]; i++) {
+        UIImage* image = [[ImageHelper sharedInstance] loadImageFromDocumentsDirectory:[[attachs objectAtIndex:i] st_file_path]];
+    }
+
     
     [self.tableAttachs reloadData];
     [super viewDidAppear:animated];

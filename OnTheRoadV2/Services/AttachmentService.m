@@ -43,4 +43,15 @@
     }];
 }
 
+-(NSArray*) getAttachmentsFromPin:(NSManagedObjectID*) pinId{
+    
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"pin == %@", pinId];
+    
+    NSArray* notes = [NSMutableArray new];
+    //Return notes from pin
+    notes = [Attachment MR_findAllWithPredicate:predicate1];
+    return notes;
+}
+
+
 @end

@@ -12,6 +12,18 @@
 @implementation NoteService
 
 
++ (NoteService*)sharedInstance
+{
+    static NoteService *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[NoteService alloc] init];
+    });
+    return _sharedInstance;
+}
+
+
 -(BOOL) insert:(Note *)note:(NSManagedObjectID *) idCurrentPin: (NSManagedObjectID *) idCurrentTrip
 {
     /* Get the pin */

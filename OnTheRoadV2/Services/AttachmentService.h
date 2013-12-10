@@ -13,5 +13,6 @@
 
 + (AttachmentService*)sharedInstance;
 - (void)saveArrayImagePath: (NSMutableArray* )paths: (Pin *) pin;
+-(NSArray*) getAttachmentsFromPin:(NSManagedObjectID*) pinId;
 
 @end

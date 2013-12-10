@@ -53,4 +53,16 @@
     
 }
 
+// user generated images are stored in the documents directory
+-(UIImage *) loadImageFromDocumentsDirectory:(NSString *)imageUrl
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:imageUrl];
+    
+    return image;
+}
+
 @end

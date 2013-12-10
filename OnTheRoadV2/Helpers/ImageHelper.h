@@ -13,5 +13,6 @@
 + (ImageHelper*)sharedInstance;
 - (NSString*) saveImageAndReturnPath:(UIImage*)image;
 - (NSString *) getUniqueIdentifier;
+-(UIImage *) loadImageFromDocumentsDirectory:(NSString *)imageUrl;
 
 @end
