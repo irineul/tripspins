@@ -30,7 +30,7 @@
     
     for (int i =0; i<[paths count]; i++) {
         Attachment *attachment = [Attachment MR_createInContext:localContext];
-        [attachment setIn_attachment:[NSNumber numberWithInt:IMAGE]];
+        [attachment setIn_attachment:[NSNumber numberWithInt:1]];
         [attachment setSt_file_path:[paths objectAtIndex:i]];
         [attachment setPin:pin];
     }

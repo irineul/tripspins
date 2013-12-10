@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9BD18539DAA00423B34 /* ImageHelper.m */; };
 		263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C018539FDE00423B34 /* AttachmentService.m */; };
-		263AB9C71853A48F00423B34 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C61853A48F00423B34 /* Attachment.m */; };
 		263AB9CD1853B44300423B34 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9CC1853B44300423B34 /* Pin.m */; };
 		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
 		2645E91B184D65670067F75D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E91A184D65670067F75D /* FacebookSDK.framework */; };
+		2671DDCF18569AA10075F307 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671DDCE18569AA10075F307 /* Attachment.m */; };
 		6D03060B17F76FEC0000F8D6 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060917F76FEB0000F8D6 /* NoteViewController.m */; };
 		6D03060C17F76FEC0000F8D6 /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */; };
 		6D03061017F774570000F8D6 /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060F17F774570000F8D6 /* TripService.m */; };
@@ -108,12 +108,12 @@
 		263AB9BF18539FDE00423B34 /* AttachmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentService.h; path = Services/AttachmentService.h; sourceTree = "<group>"; };
 		263AB9C018539FDE00423B34 /* AttachmentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentService.m; path = Services/AttachmentService.m; sourceTree = "<group>"; };
 		263AB9C21853A3FD00423B34 /* FileTypesEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTypesEnum.h; path = Helpers/FileTypesEnum.h; sourceTree = "<group>"; };
-		263AB9C51853A48F00423B34 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
-		263AB9C61853A48F00423B34 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		263AB9CB1853B44300423B34 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pin.h; path = Models/Pin.h; sourceTree = "<group>"; };
 		263AB9CC1853B44300423B34 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
 		2645E8FD184D62640067F75D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		2645E91A184D65670067F75D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		2671DDCD18569AA10075F307 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
+		2671DDCE18569AA10075F307 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		6D03060817F76FEB0000F8D6 /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		6D03060917F76FEB0000F8D6 /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
@@ -366,10 +366,10 @@
 				6DC9D1DD1842CC1E00DBA671 /* Trip.m */,
 				6DC9D1D61842CC1D00DBA671 /* Note.h */,
 				6DC9D1D71842CC1D00DBA671 /* Note.m */,
-				263AB9C51853A48F00423B34 /* Attachment.h */,
-				263AB9C61853A48F00423B34 /* Attachment.m */,
 				263AB9CB1853B44300423B34 /* Pin.h */,
 				263AB9CC1853B44300423B34 /* Pin.m */,
+				2671DDCD18569AA10075F307 /* Attachment.h */,
+				2671DDCE18569AA10075F307 /* Attachment.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -692,7 +692,6 @@
 				6D8ADFE517D3C331006775DC /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				6D8ADFE617D3C331006775DC /* NSPersistentStore+MagicalRecord.m in Sources */,
 				6D8ADFE717D3C331006775DC /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
-				263AB9C71853A48F00423B34 /* Attachment.m in Sources */,
 				6D8ADFE817D3C331006775DC /* MagicalRecord+Actions.m in Sources */,
 				6D8ADFE917D3C331006775DC /* MagicalRecord+ErrorHandling.m in Sources */,
 				6D8ADFEA17D3C331006775DC /* MagicalRecord+iCloud.m in Sources */,
@@ -716,6 +715,7 @@
 				6D606A8218413F0200372DC9 /* PinDetailViewController.m in Sources */,
 				263AB9CD1853B44300423B34 /* Pin.m in Sources */,
 				6D606A881841441000372DC9 /* AttachmentCell.m in Sources */,
+				2671DDCF18569AA10075F307 /* Attachment.m in Sources */,
 				6D2F67E618416AA800F4A5CE /* FilesService.m in Sources */,
 				6DC9D1D81842CC1D00DBA671 /* Note.m in Sources */,
 				6DC9D1DE1842CC1E00DBA671 /* Trip.m in Sources */,

@@ -13,6 +13,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "AttachmentService.h"
 #import "ImageHelper.h"
+#import "Attachment.h"
+#import "FileTypesEnum.h"
 
 @interface PinViewController ()
 
@@ -201,10 +203,20 @@
         NSNumber *pinsN = [NSNumber numberWithInt:pins+1];
         [tripDb setInt_total_pin:pinsN];
         
-        [[newPin MR_inContext:localContext ] addNotes:[NSSet setWithArray:notes]];
-        [[newPin MR_inContext:localContext ] addAttachments:[NSSet setWithArray:pictures]];
+        //Notes
+        for (int i =0; i<[notes count]; i++) {
+            Note *note = [Note MR_createInContext:localContext];
+            [note setSt_note:[[notes objectAtIndex:i] st_note]];
+            [note setPin:newPin];
+        }
         
-        [self saveAttachs:newPin];
+        //Images
+        for (int y=0; y<[pictures count]; y++) {
+            Attachment *attachment = [Attachment MR_createInContext:localContext];
+            [attachment setIn_attachment:[NSNumber numberWithInt:IMAGE]];
+            [attachment setSt_file_path:[pictures objectAtIndex:y]];
+            [attachment setPin:newPin];
+        }
 
         
     } completion:^(BOOL success, NSError *error) {
@@ -236,6 +248,8 @@
             NSLog(@"%@", error);
     }];
 }
+
+
 
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
