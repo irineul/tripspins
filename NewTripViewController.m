@@ -107,7 +107,6 @@
     }
     
     
-    
     // Stop Location Manager
     [locationManager stopUpdatingLocation];
     

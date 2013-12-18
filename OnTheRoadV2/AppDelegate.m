@@ -11,13 +11,13 @@
 #import "TripsViewController.h"
 #import "LoginViewController.h"
 #import "MainViewController.h"
+
 NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV2";
 
 @interface AppDelegate()
 
 @property (strong, nonatomic) LoginViewController *loginViewController;
 @property (strong, nonatomic) MainViewController *mainViewController;
-@property (strong, nonatomic) UINavigationController* navController;
 
 - (void)showLoginView;
 
@@ -31,23 +31,6 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 {
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"queen.sqlite"];
     
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    /* OLD BEFORE FB
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-
-    self.window.rootViewController = self.mainViewController;
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible]; */
-    
-    self.mainViewController = [[MainViewController alloc]
-                               initWithNibName:@"MainViewController" bundle:nil];
-    self.navController = [[UINavigationController alloc]
-                          initWithRootViewController:self.mainViewController];
-    self.window.rootViewController = self.navController;
-    [self.window makeKeyAndVisible];
     
     [GMSServices provideAPIKey:@"AIzaSyAlBGR6bIYrLaZof-U8PIs3FzOX8m1sIgs"];
     
@@ -60,6 +43,20 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
         [self showLoginView];
     }
     
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    
+    
+    self.mainViewController = [[MainViewController alloc]
+                               initWithNibName:@"MainViewController" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:self.mainViewController];
+    
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

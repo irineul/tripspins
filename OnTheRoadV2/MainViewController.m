@@ -18,6 +18,7 @@
 #import "PinViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
+#import "_PinViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
@@ -48,6 +49,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //hide navigation controller
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+
+    
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
     [self setUserPosition];
@@ -200,10 +206,9 @@
 }
 
 - (IBAction)pin:(id)sender {
-    PinViewController *pinView = [[PinViewController alloc] init];
+    _PinViewController *pinView = [[_PinViewController alloc] init];
     pinView.idCurrentTrip = idCurrentTrip;
-    [self presentModalViewController:pinView animated:YES];
-    // OLD - Agora chama a controller [self attachPin];
+    [self.navigationController pushViewController:pinView animated:NO];
 }
 
 - (void) attachPin{
@@ -216,8 +221,7 @@
     /* Set latitude & longitude */
     newPin.dec_latitude = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.coordinate.latitude];
     newPin.dec_longitude = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.coordinate.longitude];
-    NSLog(newPin.dec_latitude);
-    NSLog(newPin.dec_longitude);
+    
     
     /* Get current trip */
     Trip *currentTrip = (Trip*) [localContext objectWithID:idCurrentTrip];
@@ -244,7 +248,7 @@
     MapViewController *mapView = [[MapViewController alloc] init];
     mapView.idCurrentTrip = idCurrentTrip;
     mapView.currentLocation = currentLocation;
-    [self presentModalViewController:mapView animated:YES];
+    [self.navigationController pushViewController:mapView animated:NO];
 }
 
 #pragma Trip Buttons

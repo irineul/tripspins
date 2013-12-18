@@ -24,10 +24,8 @@ extern NSString *const SCSessionStateChangedNotification;
 
 @property (strong, nonatomic) UIWindow *window;
 
-/*
-@property (strong, nonatomic) LoginViewController *mainViewController;
-@property (strong, nonatomic) UINavigationController* navController;
-*/
+
+@property (strong, nonatomic) UINavigationController *navController;
 
 - (void)openSession;
 
