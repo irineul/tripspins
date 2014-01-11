@@ -7,6 +7,7 @@
 //
 
 
+//Header
 #import "_PinViewController.h"
 
 //Helpers
@@ -22,6 +23,10 @@
 //iOS
 #import <CoreLocation/CoreLocation.h>
 
+//Controllers
+#import "_PinFriendPickerViewController.h"
+
+
 @interface _PinViewController ()
 
 @end
@@ -29,6 +34,7 @@
 @implementation _PinViewController {
     GMSMapView *mapView_;
     NSMutableArray *pictures;
+    NSMutableArray *images;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     CLGeocoder *geocoder;
@@ -44,11 +50,26 @@
     }
     return self;
 }
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     isMapUpdated = false;
+    
+    //Notification of selected friends
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(saveFriendsSelected:)
+     name:@"_PinFriendPicker"
+     object:nil];
+    
+    //Get bounds
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    [self setScreenWidth:screenRect.size.width];
+    [self setScreenHeight:screenRect.size.height];
+
     
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
@@ -57,11 +78,26 @@
     //hide navigation controller
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
     
-    //Initialize pics array
+    //Initialize arrays
     pictures = [[NSMutableArray alloc] init];
+    images = [[NSMutableArray alloc] init];
     
     //Create items on navigation bar
     [self addNavigationItems];
+    
+    UINib *cellNib = [UINib nibWithNibName:@"ThumbnailCollectionCell" bundle:nil];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"Cell"];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = self.collectionView.frame.size;
+    [flowLayout setItemSize:CGSizeMake(75, 75)];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(20, 0, 0, 0)];
+    
+    [self.collectionView setCollectionViewLayout:flowLayout];
+
+    self.txtDescription.delegate = self;
 }
 
 
@@ -77,15 +113,10 @@
     
     
     
-    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0,45, 320, 200) camera:camera];
-    mapView_.delegate = self;
-    mapView_.myLocationEnabled = YES;
-    [self.view addSubview:mapView_];
-}
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    [textView setInputAccessoryView:_toolBar];
+    self.mapView.camera = camera;
+    self.mapView.delegate = self;
+    self.mapView.myLocationEnabled = true;
 }
 
 #pragma mark
@@ -98,6 +129,7 @@
     
     [self.navigationItem setRightBarButtonItem:saveItem];
 }
+
 
 #pragma Navigation Bar Actions
 #pragma save
@@ -141,8 +173,16 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-
 #pragma Button Actions
+- (IBAction)selectFriend:(id)sender {
+    _PinFriendPickerViewController *pinFriendView = [[_PinFriendPickerViewController alloc] init];
+    [self.navigationController pushViewController:pinFriendView animated:NO];
+}
+
+- (void)saveFriendsSelected:(NSNotification *) notification {
+    NSDictionary* userInfo = notification.userInfo;
+    [self setSelectedFriends:[userInfo objectForKey:@"friends"]];
+}
 
 #pragma Take Picture
 - (IBAction)takePicture:(id)sender {
@@ -202,6 +242,7 @@
         [self presentViewController:controller animated:YES completion:NULL];
     }
 }
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 {
@@ -212,7 +253,19 @@
     [pictures addObject:[[ImageHelper sharedInstance] saveImageAndReturnPath:image]];
     
     //Save to the user's album
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    if(!picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary )
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
+    //Save thumbnail
+    CGSize destinationSize = CGSizeMake(125, 125);
+    UIGraphicsBeginImageContext(destinationSize);
+    [image drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [images addObject:newImage];
+    
+    [_collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[images count]-1 inSection:0]]];
+
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -266,4 +319,45 @@
     [locationManager startUpdatingLocation];
 }
 
+#pragma Collectionview
+/*-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [pictures count];
+}*/
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return [images count];
+
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath; {
+    static NSString *identifier = @"Cell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+    UIImage *picture =[images objectAtIndex:indexPath.row];
+    imageView.image = picture;
+
+
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    CGRect frame = [[[self tabBarController] tabBar] frame];
+    frame.origin.y = 712;
+    [UIView animateWithDuration:0.25f animations:^
+     {
+         [[[self tabBarController] tabBar] setFrame:frame];
+     }];
+}
+
+-(void)dismissKeyboard {
+    [_txtDescription resignFirstResponder];
+}
+
 @end
+

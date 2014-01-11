@@ -2,8 +2,8 @@
 //  Pin.h
 //  OnTheRoadV2
 //
-//  Created by Irineu Licks Filho on 07/12/13.
-//  Copyright (c) 2013 On The Road. All rights reserved.
+//  Created by Irineu Licks Filho on 11/01/14.
+//  Copyright (c) 2014 On The Road. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSSet *attachments;
 @property (nonatomic, retain) NSSet *notes;
 @property (nonatomic, retain) Trip *trip;
+@property (nonatomic, retain) NSManagedObject *friends;
 @end
 
 @interface Pin (CoreDataGeneratedAccessors)

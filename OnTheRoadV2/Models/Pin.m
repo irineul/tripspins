@@ -2,8 +2,8 @@
 //  Pin.m
 //  OnTheRoadV2
 //
-//  Created by Irineu Licks Filho on 07/12/13.
-//  Copyright (c) 2013 On The Road. All rights reserved.
+//  Created by Irineu Licks Filho on 11/01/14.
+//  Copyright (c) 2014 On The Road. All rights reserved.
 //
 
 #import "Pin.h"
@@ -22,5 +22,6 @@
 @dynamic attachments;
 @dynamic notes;
 @dynamic trip;
+@dynamic friends;
 
 @end

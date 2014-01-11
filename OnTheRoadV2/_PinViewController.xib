@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -7,7 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="_PinViewController">
             <connections>
-                <outlet property="txtDescription" destination="eL5-Bf-jVx" id="9Cd-sc-TlF"/>
+                <outlet property="collectionView" destination="LaN-qj-xmE" id="HXN-Uj-1in"/>
+                <outlet property="mapView" destination="d3R-8L-R8G" id="Sm6-gD-u0M"/>
+                <outlet property="toolBar" destination="w6V-R8-E6M" id="Yot-0U-k1h"/>
+                <outlet property="txtDescription" destination="FVZ-rd-rEa" id="aox-xv-aQs"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -16,37 +19,92 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Teste" id="eL5-Bf-jVx">
-                    <rect key="frame" x="0.0" y="293" width="320" height="142"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3R-8L-R8G" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="230" id="7pp-9m-hXs"/>
+                    </constraints>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVZ-rd-rEa">
+                    <rect key="frame" x="0.0" y="238" width="320" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="lnG-d8-SlZ"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="SaR-Pc-FeT"/>
+                    </connections>
                 </textView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="X6P-pR-BLe">
-                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-qj-xmE">
+                    <rect key="frame" x="0.0" y="333" width="320" height="150"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="5r0-iy-rHK"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RMf-Oa-W4m">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="QEo-wI-IPA"/>
+                        <outlet property="delegate" destination="-1" id="JOW-6f-JfE"/>
+                    </connections>
+                </collectionView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-R8-E6M">
+                    <rect key="frame" x="0.0" y="493" width="320" height="75"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem image="86-camera.png" id="jmc-06-IJs">
+                        <barButtonItem image="86-camera.png" id="Llh-bg-MqE">
                             <connections>
-                                <action selector="takePicture:" destination="-1" id="3JO-ii-Y5b"/>
+                                <action selector="takePicture:" destination="-1" id="4wf-4L-h5U"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="98" style="plain" systemItem="fixedSpace" id="dKD-GI-OVA"/>
-                        <barButtonItem image="112-group.png" id="UMj-IY-k7b"/>
-                        <barButtonItem width="98" style="plain" systemItem="fixedSpace" id="Qql-AF-UYm"/>
-                        <barButtonItem image="66-microphone.png" id="z4a-ee-qNp"/>
+                        <barButtonItem width="224" style="plain" systemItem="fixedSpace" id="Pey-rS-30S"/>
+                        <barButtonItem image="112-group.png" id="Aug-J3-YUX">
+                            <connections>
+                                <action selector="selectFriend:" destination="-1" id="7M8-eO-TNq"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FVZ-rd-rEa" secondAttribute="trailing" id="1rJ-WG-EPq"/>
+                <constraint firstItem="FVZ-rd-rEa" firstAttribute="width" secondItem="LaN-qj-xmE" secondAttribute="width" id="1xk-21-AMt"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="36G-6d-4nN"/>
+                <constraint firstItem="d3R-8L-R8G" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="3Ae-iR-HPf"/>
+                <constraint firstAttribute="bottom" secondItem="w6V-R8-E6M" secondAttribute="bottom" priority="953" id="3mm-aS-I0I"/>
+                <constraint firstAttribute="trailing" secondItem="FVZ-rd-rEa" secondAttribute="trailing" id="A3u-iu-GnC"/>
+                <constraint firstItem="d3R-8L-R8G" firstAttribute="top" secondItem="1" secondAttribute="top" id="HmW-g2-pjp"/>
+                <constraint firstItem="LaN-qj-xmE" firstAttribute="top" secondItem="FVZ-rd-rEa" secondAttribute="bottom" constant="5" id="HtC-LQ-GvP"/>
+                <constraint firstAttribute="trailing" secondItem="d3R-8L-R8G" secondAttribute="trailing" id="Otb-QH-NyV"/>
+                <constraint firstItem="FVZ-rd-rEa" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Rhh-9A-O0v"/>
+                <constraint firstItem="LaN-qj-xmE" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="RuG-jQ-VHC"/>
+                <constraint firstAttribute="trailing" secondItem="w6V-R8-E6M" secondAttribute="trailing" id="XZe-LS-2yZ"/>
+                <constraint firstItem="FVZ-rd-rEa" firstAttribute="width" secondItem="d3R-8L-R8G" secondAttribute="width" id="bvf-C0-G4h"/>
+                <constraint firstAttribute="trailing" secondItem="d3R-8L-R8G" secondAttribute="trailing" id="dth-D8-hat"/>
+                <constraint firstAttribute="bottom" secondItem="w6V-R8-E6M" secondAttribute="bottom" id="f4V-JQ-w0z"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="width" secondItem="LaN-qj-xmE" secondAttribute="width" id="geF-jb-fGk"/>
+                <constraint firstItem="FVZ-rd-rEa" firstAttribute="top" secondItem="d3R-8L-R8G" secondAttribute="bottom" constant="8" id="npC-Zu-txU"/>
+                <constraint firstItem="d3R-8L-R8G" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="pbJ-Oh-3fl"/>
+                <constraint firstAttribute="trailing" secondItem="LaN-qj-xmE" secondAttribute="trailing" id="vVj-J7-NV7"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="112-group.png" width="32" height="21"/>
-        <image name="66-microphone.png" width="12" height="24"/>
         <image name="86-camera.png" width="24" height="18"/>
     </resources>
 </document>
