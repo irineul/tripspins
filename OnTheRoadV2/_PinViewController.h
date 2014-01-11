@@ -11,8 +11,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 
+//Services
+#import "PinFBFriendService.h"
+
 @interface _PinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate, UITextViewDelegate, AVAudioRecorderDelegate>{
     UIButton *navButton;
+    PinFBFriendService *pinFBFriendService;
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
@@ -26,7 +30,6 @@
 @property (nonatomic) CGFloat currentHeight;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (strong, nonatomic) AVAudioRecorder *audioRecorder;
-@property (nonatomic) NSArray *selectedFriends;
 
 
 @end

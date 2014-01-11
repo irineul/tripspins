@@ -19,12 +19,15 @@
 #import "Pin.h"
 #import "Trip.h"
 #import "Attachment.h"
+#import "PinFBFriend.h"
 
 //iOS
 #import <CoreLocation/CoreLocation.h>
 
 //Controllers
 #import "_PinFriendPickerViewController.h"
+
+
 
 
 @interface _PinViewController ()
@@ -35,6 +38,7 @@
     GMSMapView *mapView_;
     NSMutableArray *pictures;
     NSMutableArray *images;
+    NSArray *selectedFriends;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     CLGeocoder *geocoder;
@@ -58,29 +62,28 @@
     
     isMapUpdated = false;
     
+    pinFBFriendService = [[PinFBFriendService alloc] init];
+    
     //Notification of selected friends
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(saveFriendsSelected:)
      name:@"_PinFriendPicker"
      object:nil];
-    
-    //Get bounds
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    [self setScreenWidth:screenRect.size.width];
-    [self setScreenHeight:screenRect.size.height];
 
     
+    //User's position
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
     [self setUserPosition];
     
-    //hide navigation controller
+    //hide navigation controller: No
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
     
     //Initialize arrays
     pictures = [[NSMutableArray alloc] init];
     images = [[NSMutableArray alloc] init];
+    selectedFriends = [[NSArray alloc] init];
     
     //Create items on navigation bar
     [self addNavigationItems];
@@ -165,6 +168,15 @@
         }
         
         
+        //friends
+        for (FBGraphObject<FBGraphUser> * friend in selectedFriends) {
+            PinFBFriend *fbFriend = [PinFBFriend MR_createInContext:localContext];
+            [fbFriend setId:[friend id]];
+            [fbFriend setName:[friend first_name]];
+            [fbFriend setLast_name:[friend last_name]];
+            [fbFriend setPin:newPin];
+        }
+        
     } completion:^(BOOL success, NSError *error) {
         if(!success)
             NSLog(@"%@", error);
@@ -181,7 +193,7 @@
 
 - (void)saveFriendsSelected:(NSNotification *) notification {
     NSDictionary* userInfo = notification.userInfo;
-    [self setSelectedFriends:[userInfo objectForKey:@"friends"]];
+    selectedFriends = [userInfo objectForKey:@"friends"];
 }
 
 #pragma Take Picture

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2616DBD11881BE7E00A51C37 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD01881BE7E00A51C37 /* Pin.m */; };
 		2616DBD41881BE7F00A51C37 /* PinFBFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD31881BE7F00A51C37 /* PinFBFriend.m */; };
+		2616DBD71881CAF200A51C37 /* PinFBFriendService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD61881CAF200A51C37 /* PinFBFriendService.m */; };
 		263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9BD18539DAA00423B34 /* ImageHelper.m */; };
 		263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C018539FDE00423B34 /* AttachmentService.m */; };
 		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
@@ -118,6 +119,8 @@
 		2616DBD01881BE7E00A51C37 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
 		2616DBD21881BE7F00A51C37 /* PinFBFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinFBFriend.h; path = Models/PinFBFriend.h; sourceTree = "<group>"; };
 		2616DBD31881BE7F00A51C37 /* PinFBFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriend.m; path = Models/PinFBFriend.m; sourceTree = "<group>"; };
+		2616DBD51881CAF200A51C37 /* PinFBFriendService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinFBFriendService.h; path = Services/PinFBFriendService.h; sourceTree = "<group>"; };
+		2616DBD61881CAF200A51C37 /* PinFBFriendService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriendService.m; path = Services/PinFBFriendService.m; sourceTree = "<group>"; };
 		263AB9BC18539DAA00423B34 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelper.h; path = Helpers/ImageHelper.h; sourceTree = "<group>"; };
 		263AB9BD18539DAA00423B34 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelper.m; path = Helpers/ImageHelper.m; sourceTree = "<group>"; };
 		263AB9BF18539FDE00423B34 /* AttachmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentService.h; path = Services/AttachmentService.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				6D2F67E518416AA800F4A5CE /* FilesService.m */,
 				263AB9BF18539FDE00423B34 /* AttachmentService.h */,
 				263AB9C018539FDE00423B34 /* AttachmentService.m */,
+				2616DBD51881CAF200A51C37 /* PinFBFriendService.h */,
+				2616DBD61881CAF200A51C37 /* PinFBFriendService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 				6D8ADFD917D3C331006775DC /* NSObject+MagicalDataImport.m in Sources */,
 				6D8ADFDA17D3C331006775DC /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				26FC4BB4186117EA00D824BA /* _PinViewController.m in Sources */,
+				2616DBD71881CAF200A51C37 /* PinFBFriendService.m in Sources */,
 				2616DBD41881BE7F00A51C37 /* PinFBFriend.m in Sources */,
 				6D8ADFDB17D3C331006775DC /* NSString+MagicalDataImport.m in Sources */,
 				6D8ADFDC17D3C331006775DC /* NSManagedObject+MagicalAggregation.m in Sources */,
