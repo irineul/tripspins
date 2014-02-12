@@ -74,7 +74,13 @@
     
     _status.text = @"Trip started!";
     
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:[trip objectID] forKey:@"idCurrentTrip"];
+    
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"NewTrip" object:self userInfo:userInfo];
+    
+    [self.navigationController popViewControllerAnimated:FALSE];
     
 }
 

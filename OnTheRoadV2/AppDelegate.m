@@ -10,6 +10,7 @@
 
 #import "TripsViewController.h"
 #import "LoginViewController.h"
+#import "_MainViewController.h"
 #import "MainViewController.h"
 
 NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV2";
@@ -17,7 +18,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 @interface AppDelegate()
 
 @property (strong, nonatomic) LoginViewController *loginViewController;
-@property (strong, nonatomic) MainViewController *mainViewController;
+@property (strong, nonatomic) _MainViewController *mainViewController;
 
 - (void)showLoginView;
 
@@ -29,33 +30,31 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"queen.sqlite"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"tandp.sqlite"];
     
     
     [GMSServices provideAPIKey:@"AIzaSyAlBGR6bIYrLaZof-U8PIs3FzOX8m1sIgs"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // See if the app has a valid token for the current state.
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // Yes, so just open the session (this won't display any UX).
         [self openSession];
+        
+        self.mainViewController = [[_MainViewController alloc]
+                                   initWithNibName:@"_MainViewController" bundle:nil];
+        
+        UINavigationController *navController = [[UINavigationController alloc]
+                                                 initWithRootViewController:self.mainViewController];
+        
+        self.window.rootViewController = navController;
+        [self.window makeKeyAndVisible];
+        
     } else {
         // No, display the login page.
         [self showLoginView];
     }
-    
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    
-    
-    self.mainViewController = [[MainViewController alloc]
-                               initWithNibName:@"MainViewController" bundle:nil];
-    
-    UINavigationController *navController = [[UINavigationController alloc]
-                                             initWithRootViewController:self.mainViewController];
-    
-    self.window.rootViewController = navController;
-    [self.window makeKeyAndVisible];
 
     return YES;
 }
@@ -102,18 +101,18 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 
 - (void)createAndPresentLoginView {
     if (self.loginViewController == nil) {
-
-
-        /*
+        
         self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController"
                                                                            bundle:nil];
-        UIViewController *topViewController = [self.navController topViewController];
-        [topViewController presentModalViewController:self.loginViewController animated:NO]; */
-        self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         
-        self.window.rootViewController = self.loginViewController;
-        self.window.backgroundColor = [UIColor whiteColor];
+        
+
+        UINavigationController *navController = [[UINavigationController alloc]
+                                                 initWithRootViewController:self.loginViewController];
+        
+        self.window.rootViewController = navController;
         [self.window makeKeyAndVisible];
+        
     }
 }
 

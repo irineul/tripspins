@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "_MainViewController.h"
 #import "MainViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "LoginViewController.h"
@@ -15,7 +16,7 @@
 extern NSString *const SCSessionStateChangedNotification;
 
 @class ViewController;
-@class MainViewController;
+@class _MainViewController;
 
 
 

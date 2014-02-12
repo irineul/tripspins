@@ -49,9 +49,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //hide navigation controller
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 
     
     locationManager = [[CLLocationManager alloc] init];
@@ -69,6 +66,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    //hide navigation controller
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
     
     if (FBSession.activeSession.isOpen) {
         [self populateUserDetails];

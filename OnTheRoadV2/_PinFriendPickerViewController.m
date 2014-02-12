@@ -105,7 +105,7 @@
     [self.navigationController popViewControllerAnimated:FALSE];
 }
 
-/*
+/*	
  * Event: Cancel button clicked
  */
 - (void)facebookViewControllerCancelWasPressed:(id)sender {

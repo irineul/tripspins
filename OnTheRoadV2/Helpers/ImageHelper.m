@@ -65,4 +65,27 @@
     return image;
 }
 
+- (UIImage *)thumbnailOfSize:(CGSize)size: (UIImage*) image {
+    //if( self.previewThumbnail )
+    //	return self.previewThumbnail; // returned cached thumbnail
+    
+    UIGraphicsBeginImageContext(size);
+    
+    // draw scaled image into thumbnail context
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    UIImage *newThumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // pop the context
+    UIGraphicsEndImageContext();
+    
+    if(newThumbnail == nil)
+        NSLog(@"could not scale image");
+    
+    //self.previewThumbnail = newThumbnail;
+    
+    return newThumbnail;
+    //return self.previewThumbnail;
+}
+
 @end

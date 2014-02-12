@@ -10,6 +10,16 @@
 		2616DBD11881BE7E00A51C37 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD01881BE7E00A51C37 /* Pin.m */; };
 		2616DBD41881BE7F00A51C37 /* PinFBFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD31881BE7F00A51C37 /* PinFBFriend.m */; };
 		2616DBD71881CAF200A51C37 /* PinFBFriendService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD61881CAF200A51C37 /* PinFBFriendService.m */; };
+		2616DBDB1881DB1600A51C37 /* _MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD91881DB1600A51C37 /* _MainViewController.m */; };
+		2616DBDC1881DB1600A51C37 /* _MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2616DBDA1881DB1600A51C37 /* _MainViewController.xib */; };
+		261B5D2E18837F8A00651538 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D2D18837F8A00651538 /* 19-gear.png */; };
+		261B5D3018837FB700651538 /* 38-airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D2F18837FB700651538 /* 38-airplane.png */; };
+		261B5D321883845F00651538 /* tabbarmore.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D311883845F00651538 /* tabbarmore.png */; };
+		261B5D3818838B7D00651538 /* more_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D3718838B7D00651538 /* more_icon_2.png */; };
+		261B5D3A18838D2A00651538 /* more_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D3918838D2A00651538 /* more_icon.png */; };
+		261B5D3C18838DB100651538 /* more_icon_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D3B18838DB100651538 /* more_icon_3.png */; };
+		261B5D45188394F400651538 /* finish.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D43188394F400651538 /* finish.png */; };
+		261B5D46188394F400651538 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D44188394F400651538 /* plus.png */; };
 		263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9BD18539DAA00423B34 /* ImageHelper.m */; };
 		263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C018539FDE00423B34 /* AttachmentService.m */; };
 		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
@@ -19,6 +29,9 @@
 		266B2DD71868FAA200156DA7 /* ThumbnailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266B2DD61868FAA200156DA7 /* ThumbnailCollectionCell.xib */; };
 		2671DDCF18569AA10075F307 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671DDCE18569AA10075F307 /* Attachment.m */; };
 		267DB9DD187E0EE1001C610D /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267DB9DC187E0EE1001C610D /* RecordViewController.m */; };
+		2686F51518844F8000030BFB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 2686F51418844F8000030BFB /* pin.png */; };
+		2686F51718846E0400030BFB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2686F51618846E0300030BFB /* logo.png */; };
+		26AB3D3718AB044D00A392B9 /* FriendCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AB3D3618AB044D00A392B9 /* FriendCollectionCell.xib */; };
 		26FC4B96185D393D00D824BA /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4B95185D393D00D824BA /* 86-camera.png */; };
 		26FC4B98185D399300D824BA /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4B97185D399300D824BA /* 07-map-marker.png */; };
 		26FC4B9A185D39A000D824BA /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4B99185D39A000D824BA /* 112-group.png */; };
@@ -121,6 +134,17 @@
 		2616DBD31881BE7F00A51C37 /* PinFBFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriend.m; path = Models/PinFBFriend.m; sourceTree = "<group>"; };
 		2616DBD51881CAF200A51C37 /* PinFBFriendService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinFBFriendService.h; path = Services/PinFBFriendService.h; sourceTree = "<group>"; };
 		2616DBD61881CAF200A51C37 /* PinFBFriendService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriendService.m; path = Services/PinFBFriendService.m; sourceTree = "<group>"; };
+		2616DBD81881DB1600A51C37 /* _MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MainViewController.h; sourceTree = "<group>"; };
+		2616DBD91881DB1600A51C37 /* _MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MainViewController.m; sourceTree = "<group>"; };
+		2616DBDA1881DB1600A51C37 /* _MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = _MainViewController.xib; sourceTree = "<group>"; };
+		261B5D2D18837F8A00651538 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
+		261B5D2F18837FB700651538 /* 38-airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane.png"; sourceTree = "<group>"; };
+		261B5D311883845F00651538 /* tabbarmore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbarmore.png; sourceTree = "<group>"; };
+		261B5D3718838B7D00651538 /* more_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_icon_2.png; sourceTree = "<group>"; };
+		261B5D3918838D2A00651538 /* more_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_icon.png; sourceTree = "<group>"; };
+		261B5D3B18838DB100651538 /* more_icon_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_icon_3.png; sourceTree = "<group>"; };
+		261B5D43188394F400651538 /* finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finish.png; sourceTree = "<group>"; };
+		261B5D44188394F400651538 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		263AB9BC18539DAA00423B34 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelper.h; path = Helpers/ImageHelper.h; sourceTree = "<group>"; };
 		263AB9BD18539DAA00423B34 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelper.m; path = Helpers/ImageHelper.m; sourceTree = "<group>"; };
 		263AB9BF18539FDE00423B34 /* AttachmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentService.h; path = Services/AttachmentService.h; sourceTree = "<group>"; };
@@ -137,6 +161,9 @@
 		2671DDCE18569AA10075F307 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		267DB9DB187E0EE1001C610D /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		267DB9DC187E0EE1001C610D /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		2686F51418844F8000030BFB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		2686F51618846E0300030BFB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		26AB3D3618AB044D00A392B9 /* FriendCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCollectionCell.xib; sourceTree = "<group>"; };
 		26FC4B95185D393D00D824BA /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
 		26FC4B97185D399300D824BA /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
 		26FC4B99185D39A000D824BA /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
@@ -321,6 +348,16 @@
 		26FC4B94185D393200D824BA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2686F51618846E0300030BFB /* logo.png */,
+				2686F51418844F8000030BFB /* pin.png */,
+				261B5D43188394F400651538 /* finish.png */,
+				261B5D44188394F400651538 /* plus.png */,
+				261B5D3B18838DB100651538 /* more_icon_3.png */,
+				261B5D3918838D2A00651538 /* more_icon.png */,
+				261B5D3718838B7D00651538 /* more_icon_2.png */,
+				261B5D311883845F00651538 /* tabbarmore.png */,
+				261B5D2F18837FB700651538 /* 38-airplane.png */,
+				261B5D2D18837F8A00651538 /* 19-gear.png */,
 				26FC4BA2185FD55100D824BA /* 66-microphone.png */,
 				26FC4B99185D39A000D824BA /* 112-group.png */,
 				26FC4B97185D399300D824BA /* 07-map-marker.png */,
@@ -332,6 +369,8 @@
 		6D03060217F76C330000F8D6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2616DBD81881DB1600A51C37 /* _MainViewController.h */,
+				2616DBD91881DB1600A51C37 /* _MainViewController.m */,
 				26FC4BB1186117EA00D824BA /* _PinViewController.h */,
 				26FC4BB2186117EA00D824BA /* _PinViewController.m */,
 				6D606A6A1840FC4600372DC9 /* LoginViewController.h */,
@@ -374,6 +413,7 @@
 				6D606A5C183EC4FF00372DC9 /* PinViewController.xib */,
 				6D606A8118413F0200372DC9 /* PinDetailViewController.xib */,
 				26FC4BB3186117EA00D824BA /* _PinViewController.xib */,
+				2616DBDA1881DB1600A51C37 /* _MainViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -629,6 +669,7 @@
 				6D951F6C181D85DD00D168F1 /* PinTableCell.xib */,
 				6D606A841841437D00372DC9 /* AttachmentTableCell.xib */,
 				266B2DD61868FAA200156DA7 /* ThumbnailCollectionCell.xib */,
+				26AB3D3618AB044D00A392B9 /* FriendCollectionCell.xib */,
 			);
 			name = "Custom Tables";
 			sourceTree = "<group>";
@@ -695,29 +736,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261B5D3C18838DB100651538 /* more_icon_3.png in Resources */,
 				6D281F6617D27C4A0005088C /* InfoPlist.strings in Resources */,
+				2616DBDC1881DB1600A51C37 /* _MainViewController.xib in Resources */,
 				6D281F6E17D27C4A0005088C /* Default.png in Resources */,
 				26FC4B98185D399300D824BA /* 07-map-marker.png in Resources */,
 				6D281F7017D27C4A0005088C /* Default@2x.png in Resources */,
+				261B5D3018837FB700651538 /* 38-airplane.png in Resources */,
 				6D281F7217D27C4A0005088C /* Default-568h@2x.png in Resources */,
+				261B5D46188394F400651538 /* plus.png in Resources */,
 				26FC4B9A185D39A000D824BA /* 112-group.png in Resources */,
 				6D281F7817D27C4A0005088C /* TripsViewController.xib in Resources */,
+				2686F51718846E0400030BFB /* logo.png in Resources */,
+				261B5D2E18837F8A00651538 /* 19-gear.png in Resources */,
 				6D281F8117D2A2EC0005088C /* TripTableCell.xib in Resources */,
 				6D281F9217D2B2FA0005088C /* NewTripViewController.xib in Resources */,
 				6D8ADFF117D3E128006775DC /* ic_see_on_map.png in Resources */,
 				6D39E09817E64E7400E700BE /* MainViewController.xib in Resources */,
+				261B5D3818838B7D00651538 /* more_icon_2.png in Resources */,
+				261B5D3A18838D2A00651538 /* more_icon.png in Resources */,
 				26FC4BB5186117EA00D824BA /* _PinViewController.xib in Resources */,
 				266B2DD71868FAA200156DA7 /* ThumbnailCollectionCell.xib in Resources */,
 				6D03060C17F76FEC0000F8D6 /* NoteViewController.xib in Resources */,
 				6DEBB8BE180F78CC00834364 /* GoogleMaps.bundle in Resources */,
 				26FC4BA3185FD55100D824BA /* 66-microphone.png in Resources */,
+				2686F51518844F8000030BFB /* pin.png in Resources */,
 				6D951F5C181C9BB300D168F1 /* TripDetailViewController.xib in Resources */,
 				6D951F6B181D821800D168F1 /* TripDetailPinsViewController.xib in Resources */,
 				6D951F6D181D85DD00D168F1 /* PinTableCell.xib in Resources */,
 				6D606A5E183EC4FF00372DC9 /* PinViewController.xib in Resources */,
+				26AB3D3718AB044D00A392B9 /* FriendCollectionCell.xib in Resources */,
 				26FC4B96185D393D00D824BA /* 86-camera.png in Resources */,
+				261B5D321883845F00651538 /* tabbarmore.png in Resources */,
 				6D606A6E1840FC4800372DC9 /* LoginViewController.xib in Resources */,
 				6D606A8318413F0200372DC9 /* PinDetailViewController.xib in Resources */,
+				261B5D45188394F400651538 /* finish.png in Resources */,
 				6D606A851841437D00372DC9 /* AttachmentTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,6 +802,7 @@
 				6D8ADFDD17D3C331006775DC /* NSManagedObject+MagicalDataImport.m in Sources */,
 				6D8ADFDE17D3C331006775DC /* NSManagedObject+MagicalFinders.m in Sources */,
 				6D8ADFDF17D3C331006775DC /* NSManagedObject+MagicalRecord.m in Sources */,
+				2616DBDB1881DB1600A51C37 /* _MainViewController.m in Sources */,
 				263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */,
 				6D8ADFE017D3C331006775DC /* NSManagedObject+MagicalRequests.m in Sources */,
 				6D8ADFE117D3C331006775DC /* NSManagedObjectContext+MagicalObserving.m in Sources */,

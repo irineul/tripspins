@@ -33,21 +33,11 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22">
-                        <rect key="frame" x="89" y="28" width="211" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Pins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                        <rect key="frame" x="89" y="36" width="211" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="59"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Attr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27" userLabel="Label - Atts">
-                        <rect key="frame" x="89" y="42" width="211" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="28"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -71,17 +61,13 @@
                 <constraint firstItem="14" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="4IK-SL-hCu"/>
                 <constraint firstAttribute="trailing" secondItem="35" secondAttribute="trailing" constant="20" id="68X-AV-PIm"/>
                 <constraint firstItem="35" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="Bil-vX-OZt"/>
-                <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" id="Ewo-aO-p0H"/>
                 <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" id="LDU-eB-fZe"/>
                 <constraint firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="20" id="Wab-NO-bAn"/>
-                <constraint firstItem="27" firstAttribute="top" secondItem="14" secondAttribute="bottom" constant="8" symbolic="YES" id="YL3-My-0Qq"/>
                 <constraint firstItem="22" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="drY-ZV-xEZ"/>
                 <constraint firstItem="35" firstAttribute="bottom" secondItem="2" secondAttribute="bottom" id="hnC-RJ-sW2"/>
-                <constraint firstItem="27" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="j8B-iG-XNO"/>
                 <constraint firstItem="22" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="nsE-rO-Xvk"/>
             </constraints>
             <connections>
-                <outlet property="attsLabel" destination="27" id="45"/>
                 <outlet property="dateLabel" destination="35" id="44"/>
                 <outlet property="nameLabel" destination="14" id="42"/>
                 <outlet property="pinsLabel" destination="22" id="43"/>

@@ -19,29 +19,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3R-8L-R8G" customClass="GMSMapView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d3R-8L-R8G" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="230" id="7pp-9m-hXs"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVZ-rd-rEa">
-                    <rect key="frame" x="0.0" y="238" width="320" height="90"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVZ-rd-rEa">
+                    <rect key="frame" x="20" y="238" width="280" height="90"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.84690020161290325" green="0.49347908266129031" blue="0.0" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="lnG-d8-SlZ"/>
                     </constraints>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="SaR-Pc-FeT"/>
                     </connections>
                 </textView>
-                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-qj-xmE">
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-qj-xmE">
                     <rect key="frame" x="0.0" y="333" width="320" height="150"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
@@ -55,12 +55,12 @@
                     </collectionViewFlowLayout>
                     <cells/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="QEo-wI-IPA"/>
-                        <outlet property="delegate" destination="-1" id="JOW-6f-JfE"/>
+                        <outlet property="dataSource" destination="-1" id="KqZ-0J-Ier"/>
+                        <outlet property="delegate" destination="-1" id="5Rp-06-gUu"/>
                     </connections>
                 </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-R8-E6M">
-                    <rect key="frame" x="0.0" y="493" width="320" height="75"/>
+                    <rect key="frame" x="0.0" y="493" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem image="86-camera.png" id="Llh-bg-MqE">
@@ -76,28 +76,32 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVe-s3-l1z">
+                    <rect key="frame" x="20" y="200" width="280" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="FVZ-rd-rEa" secondAttribute="trailing" id="1rJ-WG-EPq"/>
-                <constraint firstItem="FVZ-rd-rEa" firstAttribute="width" secondItem="LaN-qj-xmE" secondAttribute="width" id="1xk-21-AMt"/>
-                <constraint firstItem="w6V-R8-E6M" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="36G-6d-4nN"/>
-                <constraint firstItem="d3R-8L-R8G" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="3Ae-iR-HPf"/>
-                <constraint firstAttribute="bottom" secondItem="w6V-R8-E6M" secondAttribute="bottom" priority="953" id="3mm-aS-I0I"/>
-                <constraint firstAttribute="trailing" secondItem="FVZ-rd-rEa" secondAttribute="trailing" id="A3u-iu-GnC"/>
-                <constraint firstItem="d3R-8L-R8G" firstAttribute="top" secondItem="1" secondAttribute="top" id="HmW-g2-pjp"/>
-                <constraint firstItem="LaN-qj-xmE" firstAttribute="top" secondItem="FVZ-rd-rEa" secondAttribute="bottom" constant="5" id="HtC-LQ-GvP"/>
-                <constraint firstAttribute="trailing" secondItem="d3R-8L-R8G" secondAttribute="trailing" id="Otb-QH-NyV"/>
-                <constraint firstItem="FVZ-rd-rEa" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Rhh-9A-O0v"/>
-                <constraint firstItem="LaN-qj-xmE" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="RuG-jQ-VHC"/>
-                <constraint firstAttribute="trailing" secondItem="w6V-R8-E6M" secondAttribute="trailing" id="XZe-LS-2yZ"/>
-                <constraint firstItem="FVZ-rd-rEa" firstAttribute="width" secondItem="d3R-8L-R8G" secondAttribute="width" id="bvf-C0-G4h"/>
-                <constraint firstAttribute="trailing" secondItem="d3R-8L-R8G" secondAttribute="trailing" id="dth-D8-hat"/>
-                <constraint firstAttribute="bottom" secondItem="w6V-R8-E6M" secondAttribute="bottom" id="f4V-JQ-w0z"/>
-                <constraint firstItem="w6V-R8-E6M" firstAttribute="width" secondItem="LaN-qj-xmE" secondAttribute="width" id="geF-jb-fGk"/>
-                <constraint firstItem="FVZ-rd-rEa" firstAttribute="top" secondItem="d3R-8L-R8G" secondAttribute="bottom" constant="8" id="npC-Zu-txU"/>
-                <constraint firstItem="d3R-8L-R8G" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="pbJ-Oh-3fl"/>
-                <constraint firstAttribute="trailing" secondItem="LaN-qj-xmE" secondAttribute="trailing" id="vVj-J7-NV7"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="top" secondItem="LaN-qj-xmE" secondAttribute="bottom" constant="10" id="27H-wu-ebh"/>
+                <constraint firstItem="FVZ-rd-rEa" firstAttribute="width" secondItem="rVe-s3-l1z" secondAttribute="width" id="3p7-4F-fYV"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="leading" secondItem="d3R-8L-R8G" secondAttribute="leading" id="G2E-FK-L1l"/>
+                <constraint firstItem="FVZ-rd-rEa" firstAttribute="top" secondItem="rVe-s3-l1z" secondAttribute="bottom" constant="4" id="GuF-Ml-DmW"/>
+                <constraint firstItem="LaN-qj-xmE" firstAttribute="width" secondItem="d3R-8L-R8G" secondAttribute="width" id="Jsu-uE-0I8"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="leading" secondItem="LaN-qj-xmE" secondAttribute="leading" id="Oxd-So-y7i"/>
+                <constraint firstItem="d3R-8L-R8G" firstAttribute="top" secondItem="1" secondAttribute="top" id="RiF-5M-ZAH"/>
+                <constraint firstAttribute="trailing" secondItem="rVe-s3-l1z" secondAttribute="trailing" constant="20" id="Ucv-OJ-HVG"/>
+                <constraint firstAttribute="trailing" secondItem="d3R-8L-R8G" secondAttribute="trailing" id="Z1r-sc-eGT"/>
+                <constraint firstItem="LaN-qj-xmE" firstAttribute="top" secondItem="FVZ-rd-rEa" secondAttribute="bottom" constant="5" id="c9Z-vn-nFo"/>
+                <constraint firstAttribute="bottom" secondItem="w6V-R8-E6M" secondAttribute="bottom" id="dkz-lK-2DI"/>
+                <constraint firstItem="d3R-8L-R8G" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="jJc-kW-96B"/>
+                <constraint firstItem="rVe-s3-l1z" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="mbw-bn-MMe"/>
+                <constraint firstItem="rVe-s3-l1z" firstAttribute="top" secondItem="d3R-8L-R8G" secondAttribute="bottom" constant="10" id="oyH-og-fDS"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="width" secondItem="LaN-qj-xmE" secondAttribute="width" id="qcr-OW-yoW"/>
+                <constraint firstItem="rVe-s3-l1z" firstAttribute="top" secondItem="d3R-8L-R8G" secondAttribute="bottom" constant="10" id="uhe-do-gSf"/>
+                <constraint firstItem="w6V-R8-E6M" firstAttribute="centerX" secondItem="FVZ-rd-rEa" secondAttribute="centerX" id="uoH-1t-ans"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

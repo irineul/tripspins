@@ -64,8 +64,8 @@
 
 
 - (IBAction)skip:(id)sender {
-    MainViewController *mainview = [[MainViewController alloc] init];
-    [self presentModalViewController:mainview animated:YES];
+    _MainViewController *main = [[_MainViewController alloc] init];
+    [self.navigationController pushViewController:main animated:NO];
     
 }
 

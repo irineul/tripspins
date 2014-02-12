@@ -17,8 +17,7 @@
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     
     /* Get trip */
-    Trip *tripDb = [Trip MR_createInContext:localContext];
-    tripDb = (Trip*) [localContext objectWithID:tripId];
+    Trip *tripDb = (Trip*) [localContext objectWithID:tripId];
     
     tripDb.bool_in_active = false;
     NSDate *currentDate = [NSDate date];

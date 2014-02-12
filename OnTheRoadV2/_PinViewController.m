@@ -44,6 +44,7 @@
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
     bool isMapUpdated;
+    bool isFriendSelection;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +62,7 @@
     [super viewDidLoad];
     
     isMapUpdated = false;
+    isFriendSelection = false;
     
     pinFBFriendService = [[PinFBFriendService alloc] init];
     
@@ -88,9 +90,16 @@
     //Create items on navigation bar
     [self addNavigationItems];
     
+    
+    //Register cells
     UINib *cellNib = [UINib nibWithNibName:@"ThumbnailCollectionCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.backgroundColor = [UIColor clearColor];
+
+    /*UINib *friendCellNib = [UINib nibWithNibName:@"FriendCollectionCell" bundle:nil];
+    [self.collectionView registerNib:friendCellNib forCellWithReuseIdentifier:@"FriendCell"];
+    self.collectionView.backgroundColor = [UIColor clearColor];*/
+    
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = self.collectionView.frame.size;
@@ -101,6 +110,8 @@
     [self.collectionView setCollectionViewLayout:flowLayout];
 
     self.txtDescription.delegate = self;
+    self.txtDescription.returnKeyType = UIReturnKeyDone;
+
 }
 
 
@@ -182,7 +193,7 @@
             NSLog(@"%@", error);
     }];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:FALSE];
 }
 
 #pragma Button Actions
@@ -194,6 +205,17 @@
 - (void)saveFriendsSelected:(NSNotification *) notification {
     NSDictionary* userInfo = notification.userInfo;
     selectedFriends = [userInfo objectForKey:@"friends"];
+    
+    isFriendSelection = true;
+    
+    NSMutableArray *arrayWithIndexPaths = [NSMutableArray array];
+    for (int i = 0; i < [selectedFriends count]; i++)
+        [arrayWithIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+
+    [_collectionView insertItemsAtIndexPaths:arrayWithIndexPaths];
+
+
+    
 }
 
 #pragma Take Picture
@@ -276,6 +298,8 @@
     UIGraphicsEndImageContext();
     [images addObject:newImage];
     
+    isFriendSelection = false;
+    
     [_collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[images count]-1 inSection:0]]];
 
     
@@ -332,25 +356,38 @@
 }
 
 #pragma Collectionview
-/*-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return [pictures count];
-}*/
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return [images count];
+    return ([selectedFriends count] + [images count]);
 
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath; {
     static NSString *identifier = @"Cell";
+    UICollectionViewCell *cell;
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
-    UIImage *picture =[images objectAtIndex:indexPath.row];
-    imageView.image = picture;
+    if (isFriendSelection){
 
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+        
+        FBProfilePictureView *friendImage = (FBProfilePictureView*) [cell viewWithTag:101];
+        
+        friendImage.profileID = [[selectedFriends objectAtIndex:indexPath.row
+                                 ] id];
+    }
+    else{
+        
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+        
+        FBProfilePictureView *friendImage = (FBProfilePictureView*) [cell viewWithTag:101];
+        
+        friendImage.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+        UIImage *picture =[images objectAtIndex:indexPath.row];
+        imageView.image = picture;
+        
+    }
 
     return cell;
 }
@@ -367,9 +404,14 @@
      }];
 }
 
--(void)dismissKeyboard {
-    [_txtDescription resignFirstResponder];
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
 }
-
 @end
 
