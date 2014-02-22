@@ -8,7 +8,6 @@
 
 #import "TripDetailViewController.h"
 
-#import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "_PinDetailViewController.h"
@@ -37,6 +36,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.translucent = YES;
+    
     //Init map
     [self updateMap:0 :0];
     [self pinsOnMap];
@@ -56,8 +58,8 @@
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:latitude.doubleValue
                                                             longitude:longitude.doubleValue
-                                                                 zoom:6];
-
+                                                                 zoom:10];
+    
     self.mapView.camera = camera;
     self.mapView.delegate = self;
     
@@ -66,11 +68,16 @@
 - (void)pinsOnMap{
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     
-    // Get current trip
-    
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"trip == %@", _trip];
-    pins = [Pin MR_findAllWithPredicate:predicate1 inContext:localContext];
-    
+    if(self.pinsTrip != nil && [self.pinsTrip count] > 0)
+    {
+        pins = self.pinsTrip;
+    }
+    else
+    {
+        // Get current trip
+        NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"trip == %@", _trip];
+        pins = [Pin MR_findAllWithPredicate:predicate1 inContext:localContext];
+    }
     
     //Put the pins of the trip on the map
     if([pins count] > 0){
@@ -97,7 +104,6 @@
     //All pins
     pinview.pinsTrip = pins;
     [self.navigationController pushViewController:pinview animated:NO];
-    
 }
 
 

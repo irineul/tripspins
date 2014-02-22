@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSNumber * cellType;
 @property (nonatomic, retain) NSString * profileId;
 @property (nonatomic, retain) UIImage * picture;
+@property (nonatomic, retain) NSString * picturePath;
 
 @end

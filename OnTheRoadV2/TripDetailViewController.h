@@ -17,6 +17,7 @@
 @interface TripDetailViewController : UIViewController <GMSMapViewDelegate>
 
 @property (nonatomic) Trip *trip;
+@property (nonatomic) NSArray *pinsTrip;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *txtTitle;
 

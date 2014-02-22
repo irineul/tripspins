@@ -11,7 +11,7 @@
 #import "TripsViewController.h"
 #import "LoginViewController.h"
 #import "_MainViewController.h"
-#import "MainViewController.h"
+
 
 NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV2";
 
@@ -130,7 +130,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 {
     switch (state) {
         case FBSessionStateOpen: {
-            self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+            self.mainViewController = [[_MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
             
             self.window.rootViewController = self.mainViewController;
             self.window.backgroundColor = [UIColor whiteColor];

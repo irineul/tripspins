@@ -24,6 +24,8 @@
 		26329DEA18B8474A004232D1 /* _PinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26329DE818B8474A004232D1 /* _PinDetailViewController.xib */; };
 		263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9BD18539DAA00423B34 /* ImageHelper.m */; };
 		263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C018539FDE00423B34 /* AttachmentService.m */; };
+		2641266C18B913210081EF23 /* _PinImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2641266A18B913210081EF23 /* _PinImageViewController.m */; };
+		2641266D18B913210081EF23 /* _PinImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2641266B18B913210081EF23 /* _PinImageViewController.xib */; };
 		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
 		2645E91B184D65670067F75D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E91A184D65670067F75D /* FacebookSDK.framework */; };
 		266B2DC9186605BA00156DA7 /* _PinFriendPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B2DC8186605BA00156DA7 /* _PinFriendPickerViewController.m */; };
@@ -43,8 +45,6 @@
 		26FC4BA3185FD55100D824BA /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4BA2185FD55100D824BA /* 66-microphone.png */; };
 		26FC4BB4186117EA00D824BA /* _PinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FC4BB2186117EA00D824BA /* _PinViewController.m */; };
 		26FC4BB5186117EA00D824BA /* _PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4BB3186117EA00D824BA /* _PinViewController.xib */; };
-		6D03060B17F76FEC0000F8D6 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060917F76FEB0000F8D6 /* NoteViewController.m */; };
-		6D03060C17F76FEC0000F8D6 /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */; };
 		6D03061017F774570000F8D6 /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03060F17F774570000F8D6 /* TripService.m */; };
 		6D03061617F778EE0000F8D6 /* NoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D03061517F778EE0000F8D6 /* NoteService.m */; };
 		6D041F2517DD371F00A30CF4 /* OnTheRoadModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D041F2317DD371F00A30CF4 /* OnTheRoadModel.xcdatamodeld */; };
@@ -67,10 +67,7 @@
 		6D281F9617D2BE9C0005088C /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D281F9517D2BE9C0005088C /* libc++abi.dylib */; };
 		6D2F67E618416AA800F4A5CE /* FilesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F67E518416AA800F4A5CE /* FilesService.m */; };
 		6D325F5C17DBD4B200E26196 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D325F5B17DBD4B200E26196 /* QuartzCore.framework */; };
-		6D39E09717E64E7400E700BE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D39E09517E64E7400E700BE /* MainViewController.m */; };
 		6D39E09817E64E7400E700BE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D39E09617E64E7400E700BE /* MainViewController.xib */; };
-		6D606A5D183EC4FF00372DC9 /* PinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A5B183EC4FF00372DC9 /* PinViewController.m */; };
-		6D606A5E183EC4FF00372DC9 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D606A5C183EC4FF00372DC9 /* PinViewController.xib */; };
 		6D606A62183ED84500372DC9 /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A61183ED84500372DC9 /* AudioPlayerViewController.m */; };
 		6D606A6D1840FC4800372DC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D606A6B1840FC4600372DC9 /* LoginViewController.m */; };
 		6D606A6E1840FC4800372DC9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D606A6C1840FC4700372DC9 /* LoginViewController.xib */; };
@@ -109,7 +106,6 @@
 		6D8ADFED17D3C331006775DC /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ADFD017D3C331006775DC /* MagicalRecord+ShorthandSupport.m */; };
 		6D8ADFEE17D3C331006775DC /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ADFD217D3C331006775DC /* MagicalRecord.m */; };
 		6D8ADFF117D3E128006775DC /* ic_see_on_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D8ADFF017D3E128006775DC /* ic_see_on_map.png */; };
-		6D951F6A181D821800D168F1 /* TripDetailPinsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D951F68181D821800D168F1 /* TripDetailPinsViewController.m */; };
 		6D951F6B181D821800D168F1 /* TripDetailPinsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D951F69181D821800D168F1 /* TripDetailPinsViewController.xib */; };
 		6D951F6D181D85DD00D168F1 /* PinTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D951F6C181D85DD00D168F1 /* PinTableCell.xib */; };
 		6D951F72181D86B800D168F1 /* PinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D951F71181D86B800D168F1 /* PinTableCell.m */; };
@@ -127,7 +123,6 @@
 		6DEBB8CC180F79A900834364 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8CB180F79A900834364 /* libz.dylib */; };
 		6DEBB8CE180F79B200834364 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8CD180F79B200834364 /* OpenGLES.framework */; };
 		6DEBB8D0180F79F000834364 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEBB8CF180F79F000834364 /* SystemConfiguration.framework */; };
-		6DEBB8D7180F7E9500834364 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBB8D6180F7E9500834364 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +150,9 @@
 		263AB9BF18539FDE00423B34 /* AttachmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentService.h; path = Services/AttachmentService.h; sourceTree = "<group>"; };
 		263AB9C018539FDE00423B34 /* AttachmentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentService.m; path = Services/AttachmentService.m; sourceTree = "<group>"; };
 		263AB9C21853A3FD00423B34 /* FileTypesEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTypesEnum.h; path = Helpers/FileTypesEnum.h; sourceTree = "<group>"; };
+		2641266918B913210081EF23 /* _PinImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PinImageViewController.h; sourceTree = "<group>"; };
+		2641266A18B913210081EF23 /* _PinImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PinImageViewController.m; sourceTree = "<group>"; };
+		2641266B18B913210081EF23 /* _PinImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = _PinImageViewController.xib; sourceTree = "<group>"; };
 		2645E8FD184D62640067F75D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		2645E91A184D65670067F75D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		266B2DC7186605BA00156DA7 /* _PinFriendPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PinFriendPickerViewController.h; sourceTree = "<group>"; };
@@ -182,9 +180,6 @@
 		26FC4BB1186117EA00D824BA /* _PinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PinViewController.h; sourceTree = "<group>"; };
 		26FC4BB2186117EA00D824BA /* _PinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PinViewController.m; sourceTree = "<group>"; };
 		26FC4BB3186117EA00D824BA /* _PinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = _PinViewController.xib; sourceTree = "<group>"; };
-		6D03060817F76FEB0000F8D6 /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
-		6D03060917F76FEB0000F8D6 /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
-		6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
 		6D03060E17F774570000F8D6 /* TripService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripService.h; sourceTree = "<group>"; };
 		6D03060F17F774570000F8D6 /* TripService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripService.m; sourceTree = "<group>"; };
 		6D03061417F778EE0000F8D6 /* NoteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteService.h; sourceTree = "<group>"; };
@@ -217,12 +212,7 @@
 		6D2F67E418416AA800F4A5CE /* FilesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesService.h; path = Services/FilesService.h; sourceTree = "<group>"; };
 		6D2F67E518416AA800F4A5CE /* FilesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesService.m; path = Services/FilesService.m; sourceTree = "<group>"; };
 		6D325F5B17DBD4B200E26196 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6D39E09417E64E7400E700BE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		6D39E09517E64E7400E700BE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6D39E09617E64E7400E700BE /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		6D606A5A183EC4FF00372DC9 /* PinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinViewController.h; sourceTree = "<group>"; };
-		6D606A5B183EC4FF00372DC9 /* PinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinViewController.m; sourceTree = "<group>"; };
-		6D606A5C183EC4FF00372DC9 /* PinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
 		6D606A60183ED84500372DC9 /* AudioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayerViewController.h; path = Helpers/AudioPlayerViewController.h; sourceTree = "<group>"; };
 		6D606A61183ED84500372DC9 /* AudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayerViewController.m; path = Helpers/AudioPlayerViewController.m; sourceTree = "<group>"; };
 		6D606A6A1840FC4600372DC9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -293,8 +283,6 @@
 		6D8ADFD317D3C331006775DC /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		6D8ADFD417D3C331006775DC /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		6D8ADFF017D3E128006775DC /* ic_see_on_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_see_on_map.png; sourceTree = "<group>"; };
-		6D951F67181D821800D168F1 /* TripDetailPinsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailPinsViewController.h; sourceTree = "<group>"; };
-		6D951F68181D821800D168F1 /* TripDetailPinsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailPinsViewController.m; sourceTree = "<group>"; };
 		6D951F69181D821800D168F1 /* TripDetailPinsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDetailPinsViewController.xib; sourceTree = "<group>"; };
 		6D951F6C181D85DD00D168F1 /* PinTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinTableCell.xib; sourceTree = "<group>"; };
 		6D951F70181D86B800D168F1 /* PinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinTableCell.h; sourceTree = "<group>"; };
@@ -315,8 +303,6 @@
 		6DEBB8CB180F79A900834364 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6DEBB8CD180F79B200834364 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6DEBB8CF180F79F000834364 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		6DEBB8D5180F7E9500834364 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		6DEBB8D6180F7E9500834364 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +363,8 @@
 		6D03060217F76C330000F8D6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2641266918B913210081EF23 /* _PinImageViewController.h */,
+				2641266A18B913210081EF23 /* _PinImageViewController.m */,
 				26329DE618B8474A004232D1 /* _PinDetailViewController.h */,
 				26329DE718B8474A004232D1 /* _PinDetailViewController.m */,
 				26329DDB18B57C42004232D1 /* TripDetailViewController.h */,
@@ -387,22 +375,12 @@
 				26FC4BB2186117EA00D824BA /* _PinViewController.m */,
 				6D606A6A1840FC4600372DC9 /* LoginViewController.h */,
 				6D606A6B1840FC4600372DC9 /* LoginViewController.m */,
-				6D606A5A183EC4FF00372DC9 /* PinViewController.h */,
-				6D606A5B183EC4FF00372DC9 /* PinViewController.m */,
 				6D606A7F18413EFF00372DC9 /* PinDetailViewController.h */,
 				6D606A8018413EFF00372DC9 /* PinDetailViewController.m */,
-				6D03060817F76FEB0000F8D6 /* NoteViewController.h */,
-				6D03060917F76FEB0000F8D6 /* NoteViewController.m */,
-				6D39E09417E64E7400E700BE /* MainViewController.h */,
-				6D39E09517E64E7400E700BE /* MainViewController.m */,
 				6D281F7317D27C4A0005088C /* TripsViewController.h */,
 				6D281F7417D27C4A0005088C /* TripsViewController.m */,
-				6D951F67181D821800D168F1 /* TripDetailPinsViewController.h */,
-				6D951F68181D821800D168F1 /* TripDetailPinsViewController.m */,
 				6D281F8E17D2B2FA0005088C /* NewTripViewController.h */,
 				6D281F8F17D2B2FA0005088C /* NewTripViewController.m */,
-				6DEBB8D5180F7E9500834364 /* MapViewController.h */,
-				6DEBB8D6180F7E9500834364 /* MapViewController.m */,
 				266B2DC7186605BA00156DA7 /* _PinFriendPickerViewController.h */,
 				266B2DC8186605BA00156DA7 /* _PinFriendPickerViewController.m */,
 				267DB9DB187E0EE1001C610D /* RecordViewController.h */,
@@ -417,15 +395,14 @@
 				6D606A6C1840FC4700372DC9 /* LoginViewController.xib */,
 				6D951F6F181D85F900D168F1 /* Trip Details */,
 				6D951F6E181D85E600D168F1 /* Custom Tables */,
-				6D03060A17F76FEB0000F8D6 /* NoteViewController.xib */,
 				6D39E09617E64E7400E700BE /* MainViewController.xib */,
 				6D281F9017D2B2FA0005088C /* NewTripViewController.xib */,
-				6D606A5C183EC4FF00372DC9 /* PinViewController.xib */,
 				6D606A8118413F0200372DC9 /* PinDetailViewController.xib */,
 				26FC4BB3186117EA00D824BA /* _PinViewController.xib */,
 				2616DBDA1881DB1600A51C37 /* _MainViewController.xib */,
 				26329DDD18B57C42004232D1 /* TripDetailViewController.xib */,
 				26329DE818B8474A004232D1 /* _PinDetailViewController.xib */,
+				2641266B18B913210081EF23 /* _PinImageViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -763,6 +740,7 @@
 				2686F51718846E0400030BFB /* logo.png in Resources */,
 				261B5D2E18837F8A00651538 /* 19-gear.png in Resources */,
 				6D281F8117D2A2EC0005088C /* TripTableCell.xib in Resources */,
+				2641266D18B913210081EF23 /* _PinImageViewController.xib in Resources */,
 				6D281F9217D2B2FA0005088C /* NewTripViewController.xib in Resources */,
 				6D8ADFF117D3E128006775DC /* ic_see_on_map.png in Resources */,
 				6D39E09817E64E7400E700BE /* MainViewController.xib in Resources */,
@@ -771,14 +749,12 @@
 				26FC4BB5186117EA00D824BA /* _PinViewController.xib in Resources */,
 				26329DEA18B8474A004232D1 /* _PinDetailViewController.xib in Resources */,
 				266B2DD71868FAA200156DA7 /* ThumbnailCollectionCell.xib in Resources */,
-				6D03060C17F76FEC0000F8D6 /* NoteViewController.xib in Resources */,
 				26329DDF18B57C42004232D1 /* TripDetailViewController.xib in Resources */,
 				6DEBB8BE180F78CC00834364 /* GoogleMaps.bundle in Resources */,
 				26FC4BA3185FD55100D824BA /* 66-microphone.png in Resources */,
 				2686F51518844F8000030BFB /* pin.png in Resources */,
 				6D951F6B181D821800D168F1 /* TripDetailPinsViewController.xib in Resources */,
 				6D951F6D181D85DD00D168F1 /* PinTableCell.xib in Resources */,
-				6D606A5E183EC4FF00372DC9 /* PinViewController.xib in Resources */,
 				26AB3D3718AB044D00A392B9 /* FriendCollectionCell.xib in Resources */,
 				26FC4B96185D393D00D824BA /* 86-camera.png in Resources */,
 				261B5D321883845F00651538 /* tabbarmore.png in Resources */,
@@ -839,16 +815,12 @@
 				6D8ADFEE17D3C331006775DC /* MagicalRecord.m in Sources */,
 				26D8B87618B85ACB00F8D35B /* PinFBFriend.m in Sources */,
 				6D041F2517DD371F00A30CF4 /* OnTheRoadModel.xcdatamodeld in Sources */,
-				6D39E09717E64E7400E700BE /* MainViewController.m in Sources */,
-				6D03060B17F76FEC0000F8D6 /* NoteViewController.m in Sources */,
 				6D03061017F774570000F8D6 /* TripService.m in Sources */,
+				2641266C18B913210081EF23 /* _PinImageViewController.m in Sources */,
 				26329DE918B8474A004232D1 /* _PinDetailViewController.m in Sources */,
 				26D8B87918B85ACB00F8D35B /* Attachment.m in Sources */,
 				6D03061617F778EE0000F8D6 /* NoteService.m in Sources */,
-				6DEBB8D7180F7E9500834364 /* MapViewController.m in Sources */,
-				6D951F6A181D821800D168F1 /* TripDetailPinsViewController.m in Sources */,
 				6D951F72181D86B800D168F1 /* PinTableCell.m in Sources */,
-				6D606A5D183EC4FF00372DC9 /* PinViewController.m in Sources */,
 				6D606A62183ED84500372DC9 /* AudioPlayerViewController.m in Sources */,
 				267DB9DD187E0EE1001C610D /* RecordViewController.m in Sources */,
 				6D606A6D1840FC4800372DC9 /* LoginViewController.m in Sources */,

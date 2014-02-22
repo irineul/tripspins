@@ -34,6 +34,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.translucent = YES;
+    
     [self.tabBar setSelectedItem:_tripsBarItem];
     
     [self createNavigationItems];
@@ -61,6 +63,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.navigationController.navigationBar.translucent = YES;
+    
     /* Get all trips from database */
     tripsDb = [Trip MR_findAllSortedBy:@"dt_finish" ascending:false];
     

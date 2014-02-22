@@ -19,6 +19,12 @@
 //Models
 #import "Attachment.h"
 
+//Controllers
+#import "TripDetailViewController.h"
+#import "_PinImageViewController.h"
+
+
+//Others
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface _PinDetailViewController ()
@@ -78,6 +84,13 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+/*    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
+        [self back];
+    } */
+}
 - (void)initCollectionView{
     
     //Register cells
@@ -109,6 +122,7 @@
         UIImage* image = [[ImageHelper sharedInstance] loadImageFromDocumentsDirectory:[[attachments objectAtIndex:x] st_file_path]];
         
         [cell setPicture:image];
+        [cell setPicturePath:[[attachments objectAtIndex:x] st_file_path]];
         [collectionViewCells insertObject:cell atIndex:0];
     }
 }
@@ -177,6 +191,18 @@
     
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"%d", indexPath.row);
+    //Picture
+    if(([[collectionViewCells objectAtIndex:(indexPath.row)] cellType]) == [NSNumber numberWithInt:1])
+    {
+        _PinImageViewController *pinImageView = [[_PinImageViewController alloc] init];
+        pinImageView.picturePath = [[collectionViewCells objectAtIndex:indexPath.row] picturePath];
+        [self.navigationController pushViewController:pinImageView animated:NO];
+    }
+    
+}
 
 
 #pragma mark Map Methods
@@ -219,5 +245,18 @@
     }
     return zoom;
 }
+
+-(void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker{
+    _PinDetailViewController *pinview = [[_PinDetailViewController alloc] init];
+    pinview.pinSelected = marker.userData;
+    //All pins
+    pinview.pinsTrip = self.pinsTrip;
+    
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController pushViewController:pinview animated:YES];
+
+}
+
 
 @end

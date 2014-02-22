@@ -13,5 +13,6 @@
 @synthesize cellType;
 @synthesize profileId;
 @synthesize picture;
+@synthesize picturePath;
 
 @end

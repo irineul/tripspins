@@ -28,9 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic) CGFloat screenWidth;
-@property (nonatomic) CGFloat screenHeight;
-@property (nonatomic) CGFloat currentHeight;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (strong, nonatomic) AVAudioRecorder *audioRecorder;
 @property (weak, nonatomic) IBOutlet UITextField *txtTitle;

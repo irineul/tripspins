@@ -3,12 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[_PinViewController collectionView:cellForItemAtIndexPath:]:_PinViewController.m">
+         contextName = "-[TripDetailViewController pinsOnMap]:TripDetailViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "images">
+               value = "[pin st_title]">
+            </PersistentString>
+            <PersistentString
+               value = "[pin st_description]">
+            </PersistentString>
+            <PersistentString
+               value = "marker.title">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[_PinDetailViewController collectionView:didSelectItemAtIndexPath:]:_PinDetailViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[PinFBFriendService getFriendsFromPin:]:PinFBFriendService.m">
@@ -17,6 +26,28 @@
                value = "friends">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[_PinDetailViewController mapView:didTapInfoWindowOfMarker:]:_PinDetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[_PinViewController collectionView:cellForItemAtIndexPath:]:_PinViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "images">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__29-[_PinViewController savePin]_block_invoke:_PinViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.txtTitle.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[_PinDetailViewController addPictureCells:]:_PinDetailViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

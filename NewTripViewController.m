@@ -18,8 +18,8 @@
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
-
-
+    CLLocation *currentLocation;
+    bool isMapUpdated;
 }
 
 
@@ -35,10 +35,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    isMapUpdated = false;
+    
+    [self addNavigationItems];
+    
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
     [self setUserPosition];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,13 +51,8 @@
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    
-    [textField resignFirstResponder];
-    return YES;
-}
-
-- (IBAction)start:(id)sender {
+- (IBAction)save
+{
 
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     
@@ -72,8 +71,6 @@
             NSLog(@"%@", error);
     }];
     
-    _status.text = @"Trip started!";
-    
     NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:[trip objectID] forKey:@"idCurrentTrip"];
     
@@ -84,14 +81,21 @@
     
 }
 
-- (void) setUserPosition{
+#pragma mark - Map Methods
+- (void)initMap{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:currentLocation.coordinate.latitude
+                                                            longitude:currentLocation.coordinate.longitude
+                                                                 zoom:15];
     
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
-    [locationManager startUpdatingLocation];
+    
+    
+    self.mapView.camera = camera;
+    self.mapView.delegate = self;
+    self.mapView.myLocationEnabled = true;
 }
 
+#pragma mark - Location Methods
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -105,14 +109,13 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
+    currentLocation = newLocation;
     
-    if (currentLocation != nil) {
-        self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        self.latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    //Verify if the map is already on the screen, if isn't then initialize the map
+    if(!isMapUpdated){
+        [self initMap];
+        isMapUpdated = true;
     }
-    
-    
     // Stop Location Manager
     [locationManager stopUpdatingLocation];
     
@@ -122,15 +125,33 @@
         NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
         if (error == nil && [placemarks count] > 0) {
             placemark = [placemarks lastObject];
-            self.addressLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                                 placemark.subThoroughfare, placemark.thoroughfare,
-                                 placemark.postalCode, placemark.locality,
-                                 placemark.administrativeArea,
-                                 placemark.country];
         } else {
             NSLog(@"%@", error.debugDescription);
         }
     } ];
 }
 
+- (void) setUserPosition{
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+}
+
+#pragma mark - Navigation Bar manipulation
+- (void)addNavigationItems{
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:
+                                 @"Save" style:UIBarButtonItemStyleBordered target:
+                                 self action:@selector(save)];
+    
+    [self.navigationItem setRightBarButtonItem:saveItem];
+}
+
+#pragma mark - Others Methods
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [textField resignFirstResponder];
+}
 @end

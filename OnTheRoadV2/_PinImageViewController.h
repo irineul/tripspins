@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface _PinImageViewController : UIViewController
+@property (weak, nonatomic) NSString *picturePath;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end

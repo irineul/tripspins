@@ -26,7 +26,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.navigationController.navigationBar.translucent = NO;
+    
+    UIImage *picture = [UIImage imageWithContentsOfFile: self.picturePath];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:picture];
+
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+
+    imageView.frame = CGRectMake(0, 0, screenRect.size.width, screenRect.size.height);
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    [self.view addSubview:imageView];
+
 }
 
 - (void)didReceiveMemoryWarning

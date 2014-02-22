@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "_MainViewController.h"
-#import "MainViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "LoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
