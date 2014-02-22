@@ -8,6 +8,8 @@
 
 #import "_MainViewController.h"
 
+#import "TripDetailViewController.h"
+
 
 @interface _MainViewController ()
 
@@ -52,8 +54,8 @@
     tripService = [[TripService alloc] init];
     imageHelper = [[ImageHelper alloc] init];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnTableView:)];
-    [self.tripsTable addGestureRecognizer:tap];
+    //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnTableView:)];
+    //[self.tripsTable addGestureRecognizer:tap];
     
 }
 
@@ -216,7 +218,7 @@
 #pragma Table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == _tripsTable)
+    if (tableView == self.tripsTable)
         return [tripsDb count];
     //NavBar
     else{
@@ -348,36 +350,38 @@
     return title;
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.isActiveTrip){
-        //Add pin
-        if(indexPath.row == 0)
-            [self newPin];
-        //Finish trip
-        else
-            [self finishTrip];
+    if(tableView == self.tripsTable){
+        [self.tripsTable deselectRowAtIndexPath:indexPath animated:NO];
+        TripDetailViewController *tripDetailView = [[TripDetailViewController alloc] init];
+        tripDetailView.trip = tripsDb[indexPath.row];
+        [self.navigationController pushViewController:tripDetailView animated:NO];
     }
     else{
-        [self newTrip];
+        if(self.isActiveTrip){
+            //Add pin
+            if(indexPath.row == 0)
+                [self newPin];
+            //Finish trip
+            else
+                [self finishTrip];
+        }
+        else{
+            [self newTrip];
+        }
     }
 }
 
 
 #pragma mark
 #pragma taps methods
--(void)didTapOnTableView:(UIGestureRecognizer*) recognizer {
+
+/*-(void)didTapOnTableView:(UIGestureRecognizer*) recognizer {
     //CGPoint tapLocation = [recognizer locationInView:self.tripsTable];
     [self toggleDropdownView:YES animated:YES];
-    
-    /*NSIndexPath *indexPath = [self.tripsTable indexPathForRowAtPoint:tapLocation];
-     
-     if (indexPath) { //we are in a tableview cell, let the gesture be handled by the view
-     recognizer.cancelsTouchesInView = NO;
-     } else { // anywhere else, do what is needed for your case
-     [self.navigationController popViewControllerAnimated:YES];
-     } */
-}
+}*/
 
 
 - (void)updateCurrentTrip:(NSNotification *) notification {

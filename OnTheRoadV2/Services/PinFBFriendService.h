@@ -13,4 +13,5 @@
 
 + (PinFBFriendService*)sharedInstance;
 - (NSArray*) createFBFriendModels: (NSArray*) friends;
+-(NSArray*) getFriendsFromPin:(NSManagedObjectID*) pinId;
 @end

@@ -27,5 +27,17 @@
     return _sharedInstance;
 }
 
+-(NSArray*) getFriendsFromPin:(NSManagedObjectID*) pinId{
+    
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"pin == %@", pinId];
+    
+    NSArray* friends = [NSMutableArray new];
+    
+    //Return friends of pin
+    friends = [PinFBFriend MR_findAllWithPredicate:predicate1];
+    return friends;
+}
+
+
 
 @end

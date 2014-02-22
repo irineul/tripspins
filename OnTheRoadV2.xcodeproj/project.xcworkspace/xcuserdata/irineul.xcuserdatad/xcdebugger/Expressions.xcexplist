@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[_PinViewController collectionView:cellForItemAtIndexPath:]:_PinViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "images">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PinFBFriendService getFriendsFromPin:]:PinFBFriendService.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "friends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

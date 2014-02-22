@@ -14,6 +14,9 @@
 //Services
 #import "PinFBFriendService.h"
 
+//Models
+#import "Trip.h"
+
 @interface _PinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate, UITextViewDelegate, AVAudioRecorderDelegate>{
     UIButton *navButton;
     PinFBFriendService *pinFBFriendService;
@@ -30,6 +33,6 @@
 @property (nonatomic) CGFloat currentHeight;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (strong, nonatomic) AVAudioRecorder *audioRecorder;
-
+@property (weak, nonatomic) IBOutlet UITextField *txtTitle;
 
 @end

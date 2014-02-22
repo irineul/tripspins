@@ -11,6 +11,7 @@
                 <outlet property="mapView" destination="d3R-8L-R8G" id="Sm6-gD-u0M"/>
                 <outlet property="toolBar" destination="w6V-R8-E6M" id="Yot-0U-k1h"/>
                 <outlet property="txtDescription" destination="FVZ-rd-rEa" id="aox-xv-aQs"/>
+                <outlet property="txtTitle" destination="rVe-s3-l1z" id="41i-II-qaq"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -81,6 +82,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="P7R-WX-hsb"/>
+                    </connections>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

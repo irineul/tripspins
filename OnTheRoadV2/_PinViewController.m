@@ -13,6 +13,7 @@
 //Helpers
 #import "ImageHelper.h"
 #import "FileTypesEnum.h"
+#import "PinCell.h"
 
 
 //Models
@@ -35,9 +36,10 @@
 @end
 
 @implementation _PinViewController {
-    GMSMapView *mapView_;
     NSMutableArray *pictures;
     NSMutableArray *images;
+    NSMutableArray* cells;
+    NSMutableArray* collectionViewCells;
     NSArray *selectedFriends;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
@@ -45,6 +47,7 @@
     CLPlacemark *placemark;
     bool isMapUpdated;
     bool isFriendSelection;
+    NSInteger *rowSelected;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -72,7 +75,7 @@
      selector:@selector(saveFriendsSelected:)
      name:@"_PinFriendPicker"
      object:nil];
-
+    
     
     //User's position
     locationManager = [[CLLocationManager alloc] init];
@@ -85,6 +88,8 @@
     //Initialize arrays
     pictures = [[NSMutableArray alloc] init];
     images = [[NSMutableArray alloc] init];
+    cells = [[NSMutableArray alloc] init];
+    collectionViewCells = [[NSMutableArray alloc] init];
     selectedFriends = [[NSArray alloc] init];
     
     //Create items on navigation bar
@@ -95,10 +100,6 @@
     UINib *cellNib = [UINib nibWithNibName:@"ThumbnailCollectionCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.backgroundColor = [UIColor clearColor];
-
-    /*UINib *friendCellNib = [UINib nibWithNibName:@"FriendCollectionCell" bundle:nil];
-    [self.collectionView registerNib:friendCellNib forCellWithReuseIdentifier:@"FriendCell"];
-    self.collectionView.backgroundColor = [UIColor clearColor];*/
     
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -108,10 +109,10 @@
     [flowLayout setSectionInset:UIEdgeInsetsMake(20, 0, 0, 0)];
     
     [self.collectionView setCollectionViewLayout:flowLayout];
-
+    
     self.txtDescription.delegate = self;
     self.txtDescription.returnKeyType = UIReturnKeyDone;
-
+    
 }
 
 
@@ -127,7 +128,7 @@
     
     
     
-
+    
     self.mapView.camera = camera;
     self.mapView.delegate = self;
     self.mapView.myLocationEnabled = true;
@@ -156,6 +157,7 @@
         //Create a pin
         Pin *newPin = [Pin MR_createInContext:localContext];
         [newPin setSt_description:self.txtDescription.text];
+        [newPin setSt_title:self.txtTitle.text];
         [newPin setTrip:tripDb];
         /* Set latitude & longitude */
         newPin.dec_latitude = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.coordinate.latitude];
@@ -169,7 +171,7 @@
         int pins = [tripDb.int_total_pin intValue];
         NSNumber *pinsN = [NSNumber numberWithInt:pins+1];
         [tripDb setInt_total_pin:pinsN];
-
+        
         //Images
         for (int y=0; y<[pictures count]; y++) {
             Attachment *attachment = [Attachment MR_createInContext:localContext];
@@ -177,7 +179,6 @@
             [attachment setSt_file_path:[pictures objectAtIndex:y]];
             [attachment setPin:newPin];
         }
-        
         
         //friends
         for (FBGraphObject<FBGraphUser> * friend in selectedFriends) {
@@ -209,12 +210,22 @@
     isFriendSelection = true;
     
     NSMutableArray *arrayWithIndexPaths = [NSMutableArray array];
-    for (int i = 0; i < [selectedFriends count]; i++)
+    
+    
+    for (int i = 0; i < [selectedFriends count]; i++){
+        
         [arrayWithIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-
+        
+        //Add the type of cell
+        PinCell *cell = [[PinCell alloc] init];
+        NSNumber* cellType = [NSNumber numberWithInt:2];
+        cell.cellType = cellType;
+        [cell setProfileId:[[selectedFriends objectAtIndex:i] id]];
+        [collectionViewCells insertObject:cell atIndex:i];
+    }
+    
+    
     [_collectionView insertItemsAtIndexPaths:arrayWithIndexPaths];
-
-
     
 }
 
@@ -225,19 +236,25 @@
                                                     cancelButtonTitle: @"Cancel"
                                                destructiveButtonTitle: nil
                                                     otherButtonTitles: @"Take a new photo", @"Choose from existing", nil];
+    actionSheet.tag = 2;
     [actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-        case 0:
-            [self takeNewPhotoFromCamera];
-            break;
-        case 1:
-            [self choosePhotoFromExistingImages];
-        default:
-            break;
+    if(actionSheet.tag == 1){
+        [self deleteCell:rowSelected];
+    }
+    else if(actionSheet.tag == 2){
+        switch (buttonIndex) {
+            case 0:
+                [self takeNewPhotoFromCamera];
+                break;
+            case 1:
+                [self choosePhotoFromExistingImages];
+            default:
+                break;
+        }
     }
 }
 - (void)takeNewPhotoFromCamera
@@ -264,6 +281,7 @@
         [self presentViewController:picker animated:YES completion:NULL];
     }
 }
+
 -(void)choosePhotoFromExistingImages
 {
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary])
@@ -300,10 +318,17 @@
     
     isFriendSelection = false;
     
-    [_collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[images count]-1 inSection:0]]];
-
+    //Add the type of cell
+    PinCell *cell = [[PinCell alloc] init];
+    NSNumber* cellType = [NSNumber numberWithInt:1];
+    cell.cellType = cellType;
+    [cell setPicture:newImage];
+    [collectionViewCells insertObject:cell atIndex:0];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [_collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+    
+    
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
@@ -358,38 +383,77 @@
 #pragma Collectionview
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return ([selectedFriends count] + [images count]);
-
+    return [collectionViewCells count];
+    
 }
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath; {
     static NSString *identifier = @"Cell";
-    UICollectionViewCell *cell;
     
-    if (isFriendSelection){
-
+    NSLog(@"%@",[[collectionViewCells objectAtIndex:(indexPath.row)] cellType]);
+    //Picture
+    if(([[collectionViewCells objectAtIndex:(indexPath.row)] cellType]) == [NSNumber numberWithInt:1]){
+        
+        UICollectionViewCell *cell;
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
         
-        FBProfilePictureView *friendImage = (FBProfilePictureView*) [cell viewWithTag:101];
-        
-        friendImage.profileID = [[selectedFriends objectAtIndex:indexPath.row
-                                 ] id];
-    }
-    else{
-        
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
         
         FBProfilePictureView *friendImage = (FBProfilePictureView*) [cell viewWithTag:101];
         
         friendImage.backgroundColor = [UIColor clearColor];
         
         UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
-        UIImage *picture =[images objectAtIndex:indexPath.row];
+        UIImage *picture = [[collectionViewCells objectAtIndex:indexPath.row] picture
+                            ];
         imageView.image = picture;
+        return cell;
         
     }
+    //FB Friend
+    else if(([[collectionViewCells objectAtIndex:indexPath.row] cellType]) ==[NSNumber numberWithInt:2]){
+        
+        UICollectionViewCell *cell;
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+        
+        FBProfilePictureView *friendImage = (FBProfilePictureView*) [cell viewWithTag:101];
+        
+        friendImage.profileID = [[collectionViewCells objectAtIndex:indexPath.row] profileId
+                                 ];
+        return cell;
+    }
+    
+}
 
-    return cell;
+- (void)deleteCell:(NSInteger*) row{
+    [collectionViewCells removeObjectAtIndex:row];
+    if([collectionViewCells count] == 0){
+        [_collectionView reloadData];
+    }
+    else{
+        [self.collectionView performBatchUpdates:^{
+            NSIndexPath *indexPath =[NSIndexPath indexPathForRow:row inSection:0];
+            [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle: nil
+                                                             delegate: self
+                                                    cancelButtonTitle: @"Cancel"
+                                               destructiveButtonTitle: nil
+                                                    otherButtonTitles: @"Delete", nil];
+    
+    actionSheet.tag = 1;
+    rowSelected = indexPath.row;
+    
+    [actionSheet showInView:self.view];
+    
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -411,6 +475,12 @@
         return NO;
     }
     
+    return YES;
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
     return YES;
 }
 @end

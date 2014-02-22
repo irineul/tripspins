@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="_PinDetailViewController">
+            <connections>
+                <outlet property="collectionView" destination="8Y2-3D-MBe" id="dir-UA-96a"/>
+                <outlet property="mapView" destination="IqU-A9-1kf" id="H5g-rJ-25g"/>
+                <outlet property="txtDescription" destination="mG1-l6-aW6" id="r0T-9G-oMB"/>
+                <outlet property="txtTitle" destination="rc2-gO-VZq" id="pOk-h2-LUU"/>
+                <outlet property="view" destination="PEW-DB-e2h" id="oOX-e2-buJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="PEW-DB-e2h">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IqU-A9-1kf" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mG1-l6-aW6">
+                    <rect key="frame" x="20" y="238" width="280" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.84690020160000001" green="0.49347908270000002" blue="0.0" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="amq-RH-Zqu"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                </textView>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8Y2-3D-MBe">
+                    <rect key="frame" x="0.0" y="418" width="320" height="150"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="Bjc-3L-EAJ"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U6V-CV-dy2">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="N0Q-Uc-bTy"/>
+                        <outlet property="delegate" destination="-1" id="BFz-vd-xje"/>
+                    </connections>
+                </collectionView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc2-gO-VZq">
+                    <rect key="frame" x="20" y="200" width="280" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mG1-l6-aW6" firstAttribute="top" secondItem="rc2-gO-VZq" secondAttribute="bottom" constant="13" id="27F-2t-yCH"/>
+                <constraint firstItem="mG1-l6-aW6" firstAttribute="width" secondItem="rc2-gO-VZq" secondAttribute="width" id="2JE-1L-kh3"/>
+                <constraint firstAttribute="bottom" secondItem="8Y2-3D-MBe" secondAttribute="bottom" constant="85" id="6N7-T5-cos"/>
+                <constraint firstItem="8Y2-3D-MBe" firstAttribute="top" secondItem="mG1-l6-aW6" secondAttribute="bottom" constant="5" id="AWF-ft-JN3"/>
+                <constraint firstAttribute="trailing" secondItem="rc2-gO-VZq" secondAttribute="trailing" constant="20" id="F4o-es-mjC"/>
+                <constraint firstItem="8Y2-3D-MBe" firstAttribute="width" secondItem="IqU-A9-1kf" secondAttribute="width" id="GTn-w3-ohO"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Y2-3D-MBe" secondAttribute="bottom" id="Imd-7H-z1d"/>
+                <constraint firstAttribute="bottom" secondItem="IqU-A9-1kf" secondAttribute="bottom" constant="378" id="cNl-GS-PEM"/>
+                <constraint firstItem="8Y2-3D-MBe" firstAttribute="leading" secondItem="IqU-A9-1kf" secondAttribute="leading" id="dPr-MF-Wro"/>
+                <constraint firstItem="rc2-gO-VZq" firstAttribute="top" secondItem="IqU-A9-1kf" secondAttribute="bottom" constant="10" id="fyE-xh-5c0"/>
+                <constraint firstAttribute="trailing" secondItem="IqU-A9-1kf" secondAttribute="trailing" id="jqH-iH-JST"/>
+                <constraint firstItem="IqU-A9-1kf" firstAttribute="leading" secondItem="PEW-DB-e2h" secondAttribute="leading" id="n47-SD-Q7R"/>
+                <constraint firstItem="rc2-gO-VZq" firstAttribute="leading" secondItem="PEW-DB-e2h" secondAttribute="leading" constant="20" id="nm9-UU-ldI"/>
+                <constraint firstItem="8Y2-3D-MBe" firstAttribute="centerX" secondItem="mG1-l6-aW6" secondAttribute="centerX" id="r5I-Rv-LXV"/>
+                <constraint firstItem="IqU-A9-1kf" firstAttribute="top" secondItem="PEW-DB-e2h" secondAttribute="top" id="sZF-Tt-C8w"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

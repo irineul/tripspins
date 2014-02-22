@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2616DBD11881BE7E00A51C37 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD01881BE7E00A51C37 /* Pin.m */; };
-		2616DBD41881BE7F00A51C37 /* PinFBFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD31881BE7F00A51C37 /* PinFBFriend.m */; };
 		2616DBD71881CAF200A51C37 /* PinFBFriendService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD61881CAF200A51C37 /* PinFBFriendService.m */; };
 		2616DBDB1881DB1600A51C37 /* _MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616DBD91881DB1600A51C37 /* _MainViewController.m */; };
 		2616DBDC1881DB1600A51C37 /* _MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2616DBDA1881DB1600A51C37 /* _MainViewController.xib */; };
@@ -20,6 +18,10 @@
 		261B5D3C18838DB100651538 /* more_icon_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D3B18838DB100651538 /* more_icon_3.png */; };
 		261B5D45188394F400651538 /* finish.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D43188394F400651538 /* finish.png */; };
 		261B5D46188394F400651538 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 261B5D44188394F400651538 /* plus.png */; };
+		26329DDE18B57C42004232D1 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26329DDC18B57C42004232D1 /* TripDetailViewController.m */; };
+		26329DDF18B57C42004232D1 /* TripDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26329DDD18B57C42004232D1 /* TripDetailViewController.xib */; };
+		26329DE918B8474A004232D1 /* _PinDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26329DE718B8474A004232D1 /* _PinDetailViewController.m */; };
+		26329DEA18B8474A004232D1 /* _PinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26329DE818B8474A004232D1 /* _PinDetailViewController.xib */; };
 		263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9BD18539DAA00423B34 /* ImageHelper.m */; };
 		263AB9C118539FDE00423B34 /* AttachmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 263AB9C018539FDE00423B34 /* AttachmentService.m */; };
 		2645E8FE184D62640067F75D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645E8FD184D62640067F75D /* AddressBook.framework */; };
@@ -27,11 +29,14 @@
 		266B2DC9186605BA00156DA7 /* _PinFriendPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B2DC8186605BA00156DA7 /* _PinFriendPickerViewController.m */; };
 		266B2DD31866118600156DA7 /* ImageThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B2DD21866118600156DA7 /* ImageThumbnailCell.m */; };
 		266B2DD71868FAA200156DA7 /* ThumbnailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266B2DD61868FAA200156DA7 /* ThumbnailCollectionCell.xib */; };
-		2671DDCF18569AA10075F307 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671DDCE18569AA10075F307 /* Attachment.m */; };
 		267DB9DD187E0EE1001C610D /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267DB9DC187E0EE1001C610D /* RecordViewController.m */; };
 		2686F51518844F8000030BFB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 2686F51418844F8000030BFB /* pin.png */; };
 		2686F51718846E0400030BFB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2686F51618846E0300030BFB /* logo.png */; };
 		26AB3D3718AB044D00A392B9 /* FriendCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AB3D3618AB044D00A392B9 /* FriendCollectionCell.xib */; };
+		26D8B87318B85ACA00F8D35B /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D8B87218B85ACA00F8D35B /* Pin.m */; };
+		26D8B87618B85ACB00F8D35B /* PinFBFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D8B87518B85ACB00F8D35B /* PinFBFriend.m */; };
+		26D8B87918B85ACB00F8D35B /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D8B87818B85ACB00F8D35B /* Attachment.m */; };
+		26ED23B018ADA8160055E0F4 /* PinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ED23AF18ADA8160055E0F4 /* PinCell.m */; };
 		26FC4B96185D393D00D824BA /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4B95185D393D00D824BA /* 86-camera.png */; };
 		26FC4B98185D399300D824BA /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4B97185D399300D824BA /* 07-map-marker.png */; };
 		26FC4B9A185D39A000D824BA /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FC4B99185D39A000D824BA /* 112-group.png */; };
@@ -104,8 +109,6 @@
 		6D8ADFED17D3C331006775DC /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ADFD017D3C331006775DC /* MagicalRecord+ShorthandSupport.m */; };
 		6D8ADFEE17D3C331006775DC /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ADFD217D3C331006775DC /* MagicalRecord.m */; };
 		6D8ADFF117D3E128006775DC /* ic_see_on_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D8ADFF017D3E128006775DC /* ic_see_on_map.png */; };
-		6D951F5B181C9BB300D168F1 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D951F59181C9BB300D168F1 /* TripDetailViewController.m */; };
-		6D951F5C181C9BB300D168F1 /* TripDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D951F5A181C9BB300D168F1 /* TripDetailViewController.xib */; };
 		6D951F6A181D821800D168F1 /* TripDetailPinsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D951F68181D821800D168F1 /* TripDetailPinsViewController.m */; };
 		6D951F6B181D821800D168F1 /* TripDetailPinsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D951F69181D821800D168F1 /* TripDetailPinsViewController.xib */; };
 		6D951F6D181D85DD00D168F1 /* PinTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D951F6C181D85DD00D168F1 /* PinTableCell.xib */; };
@@ -128,10 +131,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2616DBCF1881BE7E00A51C37 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pin.h; path = Models/Pin.h; sourceTree = "<group>"; };
-		2616DBD01881BE7E00A51C37 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
-		2616DBD21881BE7F00A51C37 /* PinFBFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinFBFriend.h; path = Models/PinFBFriend.h; sourceTree = "<group>"; };
-		2616DBD31881BE7F00A51C37 /* PinFBFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriend.m; path = Models/PinFBFriend.m; sourceTree = "<group>"; };
 		2616DBD51881CAF200A51C37 /* PinFBFriendService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinFBFriendService.h; path = Services/PinFBFriendService.h; sourceTree = "<group>"; };
 		2616DBD61881CAF200A51C37 /* PinFBFriendService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriendService.m; path = Services/PinFBFriendService.m; sourceTree = "<group>"; };
 		2616DBD81881DB1600A51C37 /* _MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MainViewController.h; sourceTree = "<group>"; };
@@ -145,6 +144,12 @@
 		261B5D3B18838DB100651538 /* more_icon_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_icon_3.png; sourceTree = "<group>"; };
 		261B5D43188394F400651538 /* finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finish.png; sourceTree = "<group>"; };
 		261B5D44188394F400651538 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		26329DDB18B57C42004232D1 /* TripDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
+		26329DDC18B57C42004232D1 /* TripDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
+		26329DDD18B57C42004232D1 /* TripDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDetailViewController.xib; sourceTree = "<group>"; };
+		26329DE618B8474A004232D1 /* _PinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PinDetailViewController.h; sourceTree = "<group>"; };
+		26329DE718B8474A004232D1 /* _PinDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PinDetailViewController.m; sourceTree = "<group>"; };
+		26329DE818B8474A004232D1 /* _PinDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = _PinDetailViewController.xib; sourceTree = "<group>"; };
 		263AB9BC18539DAA00423B34 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelper.h; path = Helpers/ImageHelper.h; sourceTree = "<group>"; };
 		263AB9BD18539DAA00423B34 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelper.m; path = Helpers/ImageHelper.m; sourceTree = "<group>"; };
 		263AB9BF18539FDE00423B34 /* AttachmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentService.h; path = Services/AttachmentService.h; sourceTree = "<group>"; };
@@ -157,13 +162,19 @@
 		266B2DD11866118600156DA7 /* ImageThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageThumbnailCell.h; sourceTree = "<group>"; };
 		266B2DD21866118600156DA7 /* ImageThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageThumbnailCell.m; sourceTree = "<group>"; };
 		266B2DD61868FAA200156DA7 /* ThumbnailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCollectionCell.xib; sourceTree = "<group>"; };
-		2671DDCD18569AA10075F307 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
-		2671DDCE18569AA10075F307 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
 		267DB9DB187E0EE1001C610D /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		267DB9DC187E0EE1001C610D /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		2686F51418844F8000030BFB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		2686F51618846E0300030BFB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		26AB3D3618AB044D00A392B9 /* FriendCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCollectionCell.xib; sourceTree = "<group>"; };
+		26D8B87118B85ACA00F8D35B /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pin.h; path = Models/Pin.h; sourceTree = "<group>"; };
+		26D8B87218B85ACA00F8D35B /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pin.m; path = Models/Pin.m; sourceTree = "<group>"; };
+		26D8B87418B85ACB00F8D35B /* PinFBFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinFBFriend.h; path = Models/PinFBFriend.h; sourceTree = "<group>"; };
+		26D8B87518B85ACB00F8D35B /* PinFBFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinFBFriend.m; path = Models/PinFBFriend.m; sourceTree = "<group>"; };
+		26D8B87718B85ACB00F8D35B /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attachment.h; path = Models/Attachment.h; sourceTree = "<group>"; };
+		26D8B87818B85ACB00F8D35B /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attachment.m; path = Models/Attachment.m; sourceTree = "<group>"; };
+		26ED23AE18ADA8160055E0F4 /* PinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinCell.h; path = Helpers/PinCell.h; sourceTree = "<group>"; };
+		26ED23AF18ADA8160055E0F4 /* PinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCell.m; path = Helpers/PinCell.m; sourceTree = "<group>"; };
 		26FC4B95185D393D00D824BA /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
 		26FC4B97185D399300D824BA /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
 		26FC4B99185D39A000D824BA /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
@@ -282,9 +293,6 @@
 		6D8ADFD317D3C331006775DC /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		6D8ADFD417D3C331006775DC /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		6D8ADFF017D3E128006775DC /* ic_see_on_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_see_on_map.png; sourceTree = "<group>"; };
-		6D951F58181C9BB200D168F1 /* TripDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
-		6D951F59181C9BB300D168F1 /* TripDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
-		6D951F5A181C9BB300D168F1 /* TripDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDetailViewController.xib; sourceTree = "<group>"; };
 		6D951F67181D821800D168F1 /* TripDetailPinsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailPinsViewController.h; sourceTree = "<group>"; };
 		6D951F68181D821800D168F1 /* TripDetailPinsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailPinsViewController.m; sourceTree = "<group>"; };
 		6D951F69181D821800D168F1 /* TripDetailPinsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDetailPinsViewController.xib; sourceTree = "<group>"; };
@@ -369,6 +377,10 @@
 		6D03060217F76C330000F8D6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				26329DE618B8474A004232D1 /* _PinDetailViewController.h */,
+				26329DE718B8474A004232D1 /* _PinDetailViewController.m */,
+				26329DDB18B57C42004232D1 /* TripDetailViewController.h */,
+				26329DDC18B57C42004232D1 /* TripDetailViewController.m */,
 				2616DBD81881DB1600A51C37 /* _MainViewController.h */,
 				2616DBD91881DB1600A51C37 /* _MainViewController.m */,
 				26FC4BB1186117EA00D824BA /* _PinViewController.h */,
@@ -379,8 +391,6 @@
 				6D606A5B183EC4FF00372DC9 /* PinViewController.m */,
 				6D606A7F18413EFF00372DC9 /* PinDetailViewController.h */,
 				6D606A8018413EFF00372DC9 /* PinDetailViewController.m */,
-				6D951F58181C9BB200D168F1 /* TripDetailViewController.h */,
-				6D951F59181C9BB300D168F1 /* TripDetailViewController.m */,
 				6D03060817F76FEB0000F8D6 /* NoteViewController.h */,
 				6D03060917F76FEB0000F8D6 /* NoteViewController.m */,
 				6D39E09417E64E7400E700BE /* MainViewController.h */,
@@ -414,6 +424,8 @@
 				6D606A8118413F0200372DC9 /* PinDetailViewController.xib */,
 				26FC4BB3186117EA00D824BA /* _PinViewController.xib */,
 				2616DBDA1881DB1600A51C37 /* _MainViewController.xib */,
+				26329DDD18B57C42004232D1 /* TripDetailViewController.xib */,
+				26329DE818B8474A004232D1 /* _PinDetailViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -456,12 +468,12 @@
 				6DC9D1DD1842CC1E00DBA671 /* Trip.m */,
 				6DC9D1D61842CC1D00DBA671 /* Note.h */,
 				6DC9D1D71842CC1D00DBA671 /* Note.m */,
-				2671DDCD18569AA10075F307 /* Attachment.h */,
-				2671DDCE18569AA10075F307 /* Attachment.m */,
-				2616DBD21881BE7F00A51C37 /* PinFBFriend.h */,
-				2616DBD31881BE7F00A51C37 /* PinFBFriend.m */,
-				2616DBCF1881BE7E00A51C37 /* Pin.h */,
-				2616DBD01881BE7E00A51C37 /* Pin.m */,
+				26D8B87118B85ACA00F8D35B /* Pin.h */,
+				26D8B87218B85ACA00F8D35B /* Pin.m */,
+				26D8B87418B85ACB00F8D35B /* PinFBFriend.h */,
+				26D8B87518B85ACB00F8D35B /* PinFBFriend.m */,
+				26D8B87718B85ACB00F8D35B /* Attachment.h */,
+				26D8B87818B85ACB00F8D35B /* Attachment.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -557,6 +569,8 @@
 				263AB9C21853A3FD00423B34 /* FileTypesEnum.h */,
 				266B2DD11866118600156DA7 /* ImageThumbnailCell.h */,
 				266B2DD21866118600156DA7 /* ImageThumbnailCell.m */,
+				26ED23AE18ADA8160055E0F4 /* PinCell.h */,
+				26ED23AF18ADA8160055E0F4 /* PinCell.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -678,7 +692,6 @@
 			isa = PBXGroup;
 			children = (
 				6D951F69181D821800D168F1 /* TripDetailPinsViewController.xib */,
-				6D951F5A181C9BB300D168F1 /* TripDetailViewController.xib */,
 				6D281F7617D27C4A0005088C /* TripsViewController.xib */,
 			);
 			name = "Trip Details";
@@ -756,12 +769,13 @@
 				261B5D3818838B7D00651538 /* more_icon_2.png in Resources */,
 				261B5D3A18838D2A00651538 /* more_icon.png in Resources */,
 				26FC4BB5186117EA00D824BA /* _PinViewController.xib in Resources */,
+				26329DEA18B8474A004232D1 /* _PinDetailViewController.xib in Resources */,
 				266B2DD71868FAA200156DA7 /* ThumbnailCollectionCell.xib in Resources */,
 				6D03060C17F76FEC0000F8D6 /* NoteViewController.xib in Resources */,
+				26329DDF18B57C42004232D1 /* TripDetailViewController.xib in Resources */,
 				6DEBB8BE180F78CC00834364 /* GoogleMaps.bundle in Resources */,
 				26FC4BA3185FD55100D824BA /* 66-microphone.png in Resources */,
 				2686F51518844F8000030BFB /* pin.png in Resources */,
-				6D951F5C181C9BB300D168F1 /* TripDetailViewController.xib in Resources */,
 				6D951F6B181D821800D168F1 /* TripDetailPinsViewController.xib in Resources */,
 				6D951F6D181D85DD00D168F1 /* PinTableCell.xib in Resources */,
 				6D606A5E183EC4FF00372DC9 /* PinViewController.xib in Resources */,
@@ -785,18 +799,17 @@
 				6D281F6817D27C4A0005088C /* main.m in Sources */,
 				6D281F6C17D27C4A0005088C /* AppDelegate.m in Sources */,
 				6D281F7517D27C4A0005088C /* TripsViewController.m in Sources */,
+				26ED23B018ADA8160055E0F4 /* PinCell.m in Sources */,
 				6D281F8417D2A51C0005088C /* TripTableCell.m in Sources */,
 				6D281F9117D2B2FA0005088C /* NewTripViewController.m in Sources */,
 				6D8ADFD517D3C331006775DC /* MagicalImportFunctions.m in Sources */,
 				6D8ADFD617D3C331006775DC /* NSAttributeDescription+MagicalDataImport.m in Sources */,
-				2616DBD11881BE7E00A51C37 /* Pin.m in Sources */,
 				6D8ADFD717D3C331006775DC /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				6D8ADFD817D3C331006775DC /* NSNumber+MagicalDataImport.m in Sources */,
 				6D8ADFD917D3C331006775DC /* NSObject+MagicalDataImport.m in Sources */,
 				6D8ADFDA17D3C331006775DC /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				26FC4BB4186117EA00D824BA /* _PinViewController.m in Sources */,
 				2616DBD71881CAF200A51C37 /* PinFBFriendService.m in Sources */,
-				2616DBD41881BE7F00A51C37 /* PinFBFriend.m in Sources */,
 				6D8ADFDB17D3C331006775DC /* NSString+MagicalDataImport.m in Sources */,
 				6D8ADFDC17D3C331006775DC /* NSManagedObject+MagicalAggregation.m in Sources */,
 				6D8ADFDD17D3C331006775DC /* NSManagedObject+MagicalDataImport.m in Sources */,
@@ -807,6 +820,7 @@
 				6D8ADFE017D3C331006775DC /* NSManagedObject+MagicalRequests.m in Sources */,
 				6D8ADFE117D3C331006775DC /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				6D8ADFE217D3C331006775DC /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				26329DDE18B57C42004232D1 /* TripDetailViewController.m in Sources */,
 				6D8ADFE317D3C331006775DC /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				6D8ADFE417D3C331006775DC /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				6D8ADFE517D3C331006775DC /* NSManagedObjectModel+MagicalRecord.m in Sources */,
@@ -817,18 +831,21 @@
 				266B2DD31866118600156DA7 /* ImageThumbnailCell.m in Sources */,
 				6D8ADFE917D3C331006775DC /* MagicalRecord+ErrorHandling.m in Sources */,
 				6D8ADFEA17D3C331006775DC /* MagicalRecord+iCloud.m in Sources */,
+				26D8B87318B85ACA00F8D35B /* Pin.m in Sources */,
 				263AB9BE18539DAA00423B34 /* ImageHelper.m in Sources */,
 				6D8ADFEB17D3C331006775DC /* MagicalRecord+Options.m in Sources */,
 				6D8ADFEC17D3C331006775DC /* MagicalRecord+Setup.m in Sources */,
 				6D8ADFED17D3C331006775DC /* MagicalRecord+ShorthandSupport.m in Sources */,
 				6D8ADFEE17D3C331006775DC /* MagicalRecord.m in Sources */,
+				26D8B87618B85ACB00F8D35B /* PinFBFriend.m in Sources */,
 				6D041F2517DD371F00A30CF4 /* OnTheRoadModel.xcdatamodeld in Sources */,
 				6D39E09717E64E7400E700BE /* MainViewController.m in Sources */,
 				6D03060B17F76FEC0000F8D6 /* NoteViewController.m in Sources */,
 				6D03061017F774570000F8D6 /* TripService.m in Sources */,
+				26329DE918B8474A004232D1 /* _PinDetailViewController.m in Sources */,
+				26D8B87918B85ACB00F8D35B /* Attachment.m in Sources */,
 				6D03061617F778EE0000F8D6 /* NoteService.m in Sources */,
 				6DEBB8D7180F7E9500834364 /* MapViewController.m in Sources */,
-				6D951F5B181C9BB300D168F1 /* TripDetailViewController.m in Sources */,
 				6D951F6A181D821800D168F1 /* TripDetailPinsViewController.m in Sources */,
 				6D951F72181D86B800D168F1 /* PinTableCell.m in Sources */,
 				6D606A5D183EC4FF00372DC9 /* PinViewController.m in Sources */,
@@ -837,7 +854,6 @@
 				6D606A6D1840FC4800372DC9 /* LoginViewController.m in Sources */,
 				6D606A8218413F0200372DC9 /* PinDetailViewController.m in Sources */,
 				6D606A881841441000372DC9 /* AttachmentCell.m in Sources */,
-				2671DDCF18569AA10075F307 /* Attachment.m in Sources */,
 				6D2F67E618416AA800F4A5CE /* FilesService.m in Sources */,
 				6DC9D1D81842CC1D00DBA671 /* Note.m in Sources */,
 				6DC9D1DE1842CC1E00DBA671 /* Trip.m in Sources */,

@@ -2,7 +2,7 @@
 //  PinFBFriend.m
 //  OnTheRoadV2
 //
-//  Created by Irineu Licks Filho on 11/01/14.
+//  Created by Irineu Licks Filho on 22/02/14.
 //  Copyright (c) 2014 On The Road. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 @implementation PinFBFriend
 
 @dynamic id;
-@dynamic name;
 @dynamic last_name;
+@dynamic name;
 @dynamic picture;
 @dynamic pin;
 
