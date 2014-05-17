@@ -2,8 +2,8 @@
 //  Trip.h
 //  OnTheRoadV2
 //
-//  Created by Irineu Licks on 24/11/13.
-//  Copyright (c) 2013 On The Road. All rights reserved.
+//  Created by Irineu Licks Filho on 14/05/14.
+//  Copyright (c) 2014 On The Road. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber * int_total_attach;
 @property (nonatomic, retain) NSNumber * int_total_pin;
 @property (nonatomic, retain) NSString * st_name;
+@property (nonatomic, retain) NSNumber * is_synced;
 @property (nonatomic, retain) NSSet *pins;
 @end
 

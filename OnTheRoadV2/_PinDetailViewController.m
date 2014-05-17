@@ -171,6 +171,8 @@
         UIImage *picture = [[collectionViewCells objectAtIndex:indexPath.row] picture
                             ];
         imageView.image = picture;
+        imageView.frame = CGRectMake(0, 0, 100, 100);
+        
         return cell;
         
     }

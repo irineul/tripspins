@@ -89,6 +89,8 @@
             
             GMSMarker *marker = [GMSMarker markerWithPosition:position];
             
+            marker.icon = [UIImage imageNamed:@"_pins.png"];
+            
             marker.title = [pin st_title];
             marker.map = self.mapView;
             marker.userData = pin;

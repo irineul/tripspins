@@ -40,6 +40,9 @@
     
     [self addNavigationItems];
     
+    //Set focus to textfield
+    [self.name becomeFirstResponder];
+    
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
     [self setUserPosition];

@@ -11,7 +11,9 @@
 #import "TripsViewController.h"
 #import "LoginViewController.h"
 #import "_MainViewController.h"
-
+#import "User.h"
+#import "UserService.h"
+#import "Services/SyncService.h"
 
 NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV2";
 
@@ -30,7 +32,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"tandp.sqlite"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"tp.sqlite"];
     
     
     [GMSServices provideAPIKey:@"AIzaSyAlBGR6bIYrLaZof-U8PIs3FzOX8m1sIgs"];
@@ -51,11 +53,14 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
         self.window.rootViewController = navController;
         [self.window makeKeyAndVisible];
         
+        //        [[UserService sharedInstance] persistUser:user];
+        
+        
     } else {
         // No, display the login page.
         [self showLoginView];
     }
-
+    
     return YES;
 }
 
@@ -68,7 +73,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -81,7 +86,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSession.activeSession handleDidBecomeActive];
-
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -103,10 +108,10 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
     if (self.loginViewController == nil) {
         
         self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController"
-                                                                           bundle:nil];
+                                                                         bundle:nil];
         
         
-
+        
         UINavigationController *navController = [[UINavigationController alloc]
                                                  initWithRootViewController:self.loginViewController];
         
@@ -130,14 +135,42 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
 {
     switch (state) {
         case FBSessionStateOpen: {
-            self.mainViewController = [[_MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+            self.mainViewController = [[_MainViewController alloc] initWithNibName:@"_MainViewController" bundle:nil];
+            
+            [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *FBuser, NSError *error) {
+                if (error) {
+                    // Handle error
+                }
+                
+                else {
+                    // If the user is not synced yet...
+                    if(![[UserService sharedInstance] isUserSynced:[FBuser id]])
+                    {
+                        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+                        User *user = [User MR_createInContext:localContext];
+                        [user setTxt_email:[FBuser objectForKey:@"email"]];
+                        [user setTxt_name:[FBuser name]];
+                        [user setId_facebook:[FBuser id]];
+                        [user setIs_synced:[NSNumber numberWithInt:0]];
+                        
+                        // Save new user :)
+                        [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error){
+                            if(!success)
+                                NSLog(@"%@", error);
+                        }];
+                        
+                        // Sync to ws
+                        [[SyncService sharedInstance] syncUser:user];
+                    }
+                }
+            }];
             
             self.window.rootViewController = self.mainViewController;
             self.window.backgroundColor = [UIColor whiteColor];
             [self.window makeKeyAndVisible];
-            break;            
+            break;
         }
-
+            
         case FBSessionStateClosed:
         case FBSessionStateClosedLoginFailed:
             // Once the user has logged in, we want them to
@@ -154,7 +187,7 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
     
     [[NSNotificationCenter defaultCenter] postNotificationName:SCSessionStateChangedNotification
                                                         object:session];
-
+    
     if (error) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Error"
@@ -177,5 +210,15 @@ NSString *const SCSessionStateChangedNotification = @"br.com.trippins.OnTheRoadV
      }];
 }
 
+
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
+    NSLog(@"usr_id::%@",user.id);
+    NSLog(@"usr_first_name::%@",user.first_name);
+    NSLog(@"usr_middle_name::%@",user.middle_name);
+    NSLog(@"usr_last_nmae::%@",user.last_name);
+    NSLog(@"usr_Username::%@",user.username);
+    NSLog(@"usr_b_day::%@",user.birthday);
+    
+}
 
 @end

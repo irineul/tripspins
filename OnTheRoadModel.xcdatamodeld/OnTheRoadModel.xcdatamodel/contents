@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Attachment" representedClassName="Attachment" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="in_attachment" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -16,7 +16,7 @@
     <entity name="Pin" representedClassName="Pin" syncable="YES">
         <attribute name="dec_latitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="dec_longitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="dt_start" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dt_pin" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="st_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="st_title" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,14 +38,25 @@
         <attribute name="dt_start" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="int_total_attach" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="int_total_pin" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_synced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="st_name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pin" inverseName="trip" inverseEntity="Pin" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="id_facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_on_server" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_synced" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="txt_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txt_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txt_password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txt_username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Attachment" positionX="-261" positionY="492" width="126" height="118"/>
         <element name="Note" positionX="153" positionY="459" width="126" height="105"/>
-        <element name="Pin" positionX="-63" positionY="231" width="128" height="193"/>
+        <element name="Pin" positionX="-63" positionY="231" width="128" height="195"/>
         <element name="PinFBFriend" positionX="-333" positionY="176" width="128" height="118"/>
-        <element name="Trip" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="Trip" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="User" positionX="-126" positionY="324" width="128" height="148"/>
     </elements>
 </model>

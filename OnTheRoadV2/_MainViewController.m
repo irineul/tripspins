@@ -9,6 +9,9 @@
 #import "_MainViewController.h"
 
 #import "TripDetailViewController.h"
+#import "SyncService.h"
+#import "User.h"
+#import "UserService.h"
 
 
 @interface _MainViewController ()
@@ -34,7 +37,14 @@
 {
     [super viewDidLoad];
     
+    //Sync trip
+
+    
+    //Sync user
+    
+    
     self.navigationController.navigationBar.translucent = YES;
+    self.isNewPin = false;
     
     [self.tabBar setSelectedItem:_tripsBarItem];
     
@@ -59,6 +69,12 @@
     //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnTableView:)];
     //[self.tripsTable addGestureRecognizer:tap];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(increasePins:)
+                                                 name:@"NewPin"
+                                               object:nil];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -70,8 +86,7 @@
     
     [self.tripsTable reloadData];
     
-    [self toggleDropdownView:YES animated:YES];
-    
+    [self toggleDropdownView:YES animated:NO];
     
     NSLog(@"Appear %d", self.isActiveTrip);
     
@@ -252,7 +267,7 @@
         
         /* Format object to present */
         Trip *trip = [tripsDb objectAtIndex:[indexPath row]];
-        NSNumber* pins = [trip int_total_pin];
+        NSNumber *pins = [trip int_total_pin];
         NSDate* dtStart = [trip dt_start];
         NSDate* dtFinish = [trip dt_finish];
         
@@ -265,15 +280,22 @@
         NSString *stFinish;
         NSString *stTripDate;
         
-        if(![trip bool_in_active]){
+        if(![trip bool_in_active])
+        {
             stFinish = [formatter stringFromDate:dtFinish];
             stTripDate = [NSString stringWithFormat:@"%@ - %@", stStart, stFinish];
             cell.nameLabel.text = [trip st_name];
-            
-            
         }
         else
         {
+            //The new pin is on a thread, so, I increment the number of pins
+            if(self.isNewPin)
+            {
+                int pinsValue = [pins intValue];
+                pins = [NSNumber numberWithInt:pinsValue + 1];
+                self.isNewPin = false;
+            }
+            
             stTripDate = stStart;
             cell.nameLabel.text = [NSString stringWithFormat:@"%@*", [trip st_name]];
             
@@ -357,6 +379,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self toggleDropdownView:YES animated:NO];
+    
     if(tableView == self.tripsTable){
         [self.tripsTable deselectRowAtIndexPath:indexPath animated:NO];
         TripDetailViewController *tripDetailView = [[TripDetailViewController alloc] init];
@@ -370,7 +394,9 @@
                 [self newPin];
             //Finish trip
             else
-                [self finishTrip];
+            {
+                [self showConfirmAlertFinishTrip];
+            }
         }
         else{
             [self newTrip];
@@ -383,9 +409,9 @@
 #pragma taps methods
 
 /*-(void)didTapOnTableView:(UIGestureRecognizer*) recognizer {
-    //CGPoint tapLocation = [recognizer locationInView:self.tripsTable];
-    [self toggleDropdownView:YES animated:YES];
-}*/
+ //CGPoint tapLocation = [recognizer locationInView:self.tripsTable];
+ [self toggleDropdownView:YES animated:YES];
+ }*/
 
 
 - (void)updateCurrentTrip:(NSNotification *) notification {
@@ -397,5 +423,37 @@
     else{
         self.isActiveTrip = NO;
     }
+}
+
+#pragma mark - Confirm Finish Trip
+- (void)showConfirmAlertFinishTrip
+{
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setTitle:@"Confirm"];
+    [alert setMessage:@"Do you want finish current trip?"];
+    [alert setDelegate:self];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //Yes, the user wants to finish the trip
+    if (buttonIndex == 0)
+    {
+        [self finishTrip];
+    }
+    //No
+    else if (buttonIndex == 1)
+    {
+        //Close menu
+        [self toggleDropdownView:YES animated:YES];
+    }
+}
+
+- (void)increasePins:(NSNotification *) notification
+{
+    self.isNewPin = true;
 }
 @end

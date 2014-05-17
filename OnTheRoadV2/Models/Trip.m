@@ -2,8 +2,8 @@
 //  Trip.m
 //  OnTheRoadV2
 //
-//  Created by Irineu Licks on 24/11/13.
-//  Copyright (c) 2013 On The Road. All rights reserved.
+//  Created by Irineu Licks Filho on 14/05/14.
+//  Copyright (c) 2014 On The Road. All rights reserved.
 //
 
 #import "Trip.h"
@@ -18,6 +18,7 @@
 @dynamic int_total_attach;
 @dynamic int_total_pin;
 @dynamic st_name;
+@dynamic is_synced;
 @dynamic pins;
 
 @end

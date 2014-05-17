@@ -33,6 +33,6 @@
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @property (weak, nonatomic) IBOutlet UITabBarItem *tripsBarItem;
 @property (nonatomic) bool isActiveTrip;
-
+@property (nonatomic) bool isNewPin;
 
 @end

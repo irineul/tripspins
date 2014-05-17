@@ -34,8 +34,11 @@
 
     CGRect screenRect = [[UIScreen mainScreen] bounds];
 
-    imageView.frame = CGRectMake(0, 0, screenRect.size.width, screenRect.size.height);
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.frame = CGRectMake(0, 0   , screenRect.size.width, screenRect.size.height);
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.clipsToBounds = true;
+    
+
     
     [self.view addSubview:imageView];
 

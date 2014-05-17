@@ -194,6 +194,10 @@
             NSLog(@"%@", error);
     }];
     
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"NewPin" object:self];
+    
+    
     [self.navigationController popViewControllerAnimated:FALSE];
 }
 
@@ -243,7 +247,10 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(actionSheet.tag == 1){
-        [self deleteCell:rowSelected];
+        if(buttonIndex == 0)
+        {
+            [self deleteCell:rowSelected];
+        }
     }
     else if(actionSheet.tag == 2){
         switch (buttonIndex) {
